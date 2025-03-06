@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>Universal Header</title>
     <style>
         /* Basic Reset */
         * {
@@ -28,7 +28,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            text-align: center;
         }
+        
 
         .logo {
             font-size: 24px;
@@ -38,7 +40,7 @@
 
         .menu {
             display: flex;
-            gap: 20px;
+            gap: 50px;
         }
 
         .menu a {
@@ -69,7 +71,7 @@
         .mobile-menu {
             display: none;
             flex-direction: column;
-            background-color: #005f73;
+            background-color: #00b3b3;
             position: absolute;
             top: 60px;
             right: 0;
@@ -121,7 +123,6 @@
         <div></div>
     </div>
 </header>
-
 <div class="mobile-menu" id="mobileMenu">
     <a href="/">Home</a>
     <a href="/about.html">About</a>
@@ -135,6 +136,3 @@
         mobileMenu.classList.toggle('active');
     }
 </script>
-
-</body>
-</html>
