@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>BTGenZ Header</title>
     <style>
         /* Basic Reset */
         * {
@@ -19,18 +19,16 @@
 
         /* Header Styling */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
             background-color: #005f73;
             color: white;
+            padding: 15px;
             position: sticky;
             top: 0;
             z-index: 100;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        
 
         .logo {
             font-size: 24px;
@@ -38,71 +36,68 @@
             color: #00f9ff;
         }
 
+        .menu-wrapper {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: #00b3b3 #005f73;
+            border-top: 1px solid #00b3b3;
+            border-bottom: 1px solid #00b3b3;
+        }
+
+        .menu-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .menu-wrapper::-webkit-scrollbar-thumb {
+            background-color: #00b3b3;
+            border-radius: 3px;
+        }
+
+        .menu-wrapper::-webkit-scrollbar-track {
+            background-color: #005f73;
+        }
+
         .menu {
-            display: flex;
-            gap: 50px;
+            display: inline-flex;
+            gap: 15px;
+            padding: 8px 0;
         }
 
         .menu a {
             color: white;
             text-decoration: none;
             font-size: 16px;
-            transition: 0.3s;
+            padding: 8px 12px;
+            background-color: #007f99;
+            border: 1px solid #00b3b3;
+            border-radius: 5px;
+            transition: background 0.3s;
+            flex-shrink: 0;
         }
 
         .menu a:hover {
-            color: #f59e0b;
+            background-color: #f59e0b;
+            color: #1f2937;
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 3px 0;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background-color: #00b3b3;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            width: 100%;
-            padding: 15px 0;
-            z-index: 99;
-        }
-
-        .mobile-menu a {
-            padding: 10px 20px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            background-color: #1f2937;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
+        /* Desktop - Optional Enhancement */
+        @media (min-width: 768px) {
+            header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
             }
 
-            .hamburger {
-                display: flex;
+            .logo {
+                margin-right: 20px;
             }
 
-            .mobile-menu.active {
-                display: flex;
+            .menu-wrapper {
+                flex-grow: 1;
+                overflow-x: visible;
+                white-space: nowrap;
             }
         }
     </style>
@@ -111,26 +106,16 @@
 
 <header>
     <div class="logo">BTGenZ</div>
-    <nav class="menu">
-        <a href="/">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/services.html">Services</a>
-        <a href="/contact.html">Contact</a>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <div class="menu-wrapper">
+        <nav class="menu">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/services.html">Services</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/blog.html">Blog</a>
+        </nav>
     </div>
 </header>
-<div class="mobile-menu" id="mobileMenu">
-    <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/services.html">Services</a>
-    <a href="/contact.html">Contact</a>
-</div>
-
-    <script src="/script.js"></script>
 
 </body>
 </html>
