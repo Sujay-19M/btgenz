@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Privacy Policy - BTGenZ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; }
+        main {
+            padding: 20px;
+            background-color: white;
+            max-width: 1200px;
+            margin: 20px auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 { color: #00796b; margin-bottom: 15px; }
+        p { line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
+        ul { list-style-type: square; padding-left: 20px; margin-bottom: 15px; }
+        .highlight { background-color: #00796b; color: white; padding: 5px 10px; border-radius: 5px; }
+        .content-box {
+            background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            border-left: 5px solid #00796b;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta a {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #004d40, #00796b);
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+    <h1>Privacy Policy - <span class="highlight">BTGenZ</span></h1>
+
+    <p>Welcome to BTGenZ! We care about your data the way we care about biotech jobs — with "respect and transparency". This Privacy Policy explains what we collect, why we collect it, and what you can do about it.</p>
+
+    <h2>What Data We Collect (And Why)</h2>
+    <p>We collect only what helps us improve your experience. No unnecessary spying, we promise! Here’s what we collect:</p>
+    <ul>
+        <li>Your "Name & Email" (when you contact us or subscribe)</li>
+        <li>Your "LinkedIn Profile URL" (if you take LinkedIn Optimization service)</li>
+        <li>Basic Analytics Data — Pages you visit, device type, time spent (to make our site better)</li>
+    </ul>
+
+    <h2>How We Use Your Data</h2>
+    <p>We use your data to:</p>
+    <ul>
+        <li>🎯 Send you job alerts, career tips & research news.</li>
+        <li>🔗 Optimize your profile if you use our grooming service.</li>
+        <li>📊 Analyze site traffic (to create content you love).</li>
+    </ul>
+
+    <div class="content-box">
+        <h3>🚨 No Data Selling - Ever!</h3>
+        <p>We do NOT sell, trade, or rent your personal information. Your data stays with BTGenZ, safe and sound.</p>
+    </div>
+
+    <h2>Cookies (Not the Tasty Kind)</h2>
+    <p>Like all websites, we use cookies (small files stored in your browser) to understand how you use our site. They help us:</p>
+    <ul>
+        <li>Remember your preferences.</li>
+        <li>Track which pages are most popular.</li>
+        <li>Show you relevant content when you return.</li>
+    </ul>
+    <p>You can always "clear cookies" from your browser if you want a fresh start.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Sometimes, we link to cool biotech articles or tools from trusted partners. If you visit those sites, their privacy rules apply (not ours). We’re only responsible for what happens on <strong>btgenz.com</strong>.</p>
+
+    <div class="content-box">
+        <h3>Your Rights - You’re in Control</h3>
+        <p>You can:</p>
+        <ul>
+            <li>Ask us what data we have about you.</li>
+            <li>Request corrections if something’s wrong.</li>
+            <li>Tell us to delete your data if you’re leaving (though we’ll be sad).</li>
+        </ul>
+    </div>
+
+    <h2>Children’s Privacy</h2>
+    <p>Our website is for students, professionals, and researchers aged "16 and above". If you’re younger, please browse with a parent or guardian.</p>
+
+    <h2>Policy Updates</h2>
+    <p>We might tweak this policy if laws change or we improve our services. Whenever we update it, we’ll post the new version "right here", with the date.</p>
+
+    <h2>Contact Us</h2>
+    <p>Any questions about privacy? Reach out to:</p>
+    <ul>
+        <li>Email: <a href="mailto:support@btgenz.com">support@btgenz.com</a></li>
+        <li>Phone: +91-99999-99999</li>
+    </ul>
+
+    <div class="cta">
+        <a href="index.html">Back to Home</a>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+    function loadHeaderAndFooter() {
+        fetch('header.html').then(response => response.text()).then(html => document.getElementById('header').innerHTML = html);
+        fetch('footer.html').then(response => response.text()).then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+
+</body>
+</html>
