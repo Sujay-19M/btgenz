@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Services - BTGenZ</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f0f4f8; color: #333; }
+        
+        /* Services Page Styles */
+        main {
+            padding: 40px 20px; background-color: white; max-width: 1200px; margin: 20px auto;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-radius: 8px;
+        }
+        h1, h2 { color: #00796b; margin-bottom: 25px; }
+        .infographic-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 40px 0;
+        }
+        .infographic-item {
+            text-align: center; padding: 25px; border-radius: 10px;
+            background: #f8f9fa; transition: transform 0.3s ease;
+        }
+        .stat-number { font-size: 2.5rem; color: #00796b; }
+        .comparison-chart {
+            display: flex; justify-content: space-between; margin: 40px 0;
+            background: linear-gradient(to right, #00796b 50%, #d32f2f 50%);
+            color: white; padding: 20px; border-radius: 10px;
+        }
+        .services-list { columns: 2; margin: 30px 0; }
+        .highlight { color: #d32f2f; font-weight: bold; }
+        
+        /* Contact Form Styles */
+        .contact-section { padding: 40px 0; }
+        .contact-container { max-width: 800px; margin: 0 auto; }
+        .career-form { padding: 30px; }
+        .goal-select { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .goal-option { padding: 15px; border: 2px solid #00796b; border-radius: 8px; cursor: pointer; }
+        
+        @media (max-width: 768px) {
+            .infographic-grid, .goal-select { grid-template-columns: 1fr; }
+            .services-list { columns: 1; }
+            .comparison-chart { flex-direction: column; }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+    <!-- Career Services Content -->
+    <h1>Bridging India's Biotech Talent Gap</h1>
+    
+    <div class="infographic-grid">
+        <div class="infographic-item">
+            <div class="stat-number">3rd</div>
+            <h3>Global Biotech Hub</h3>
+            <p>India ranks 3rd in Asia-Pacific biotech landscape</p>
+        </div>
+        <div class="infographic-item">
+            <div class="stat-number">4k+</div>
+            <h3>Biotech Startups</h3>
+            <p>With 4,000+ startups driving innovation</p>
+        </div>
+        <div class="infographic-item">
+            <div class="stat-number">40%</div>
+            <h3>Skills Gap</h3>
+            <p>Companies report shortage of skilled professionals</p>
+        </div>
+    </div>
+
+    <div class="comparison-chart">
+        <div class="chart-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Industry Growth</h3>
+            <p>20% CAGR in biotech sector</p>
+        </div>
+        <div class="chart-item">
+            <i class="fas fa-user-graduate"></i>
+            <h3>Talent Utilization</h3>
+            <p>Only 35% graduates find relevant jobs</p>
+        </div>
+    </div>
+
+    <h2>Our Career Acceleration Services</h2>
+    <div class="services-list">
+        <p><i class="fas fa-check highlight"></i> LinkedIn Profile SEO Optimization</p>
+        <p><i class="fas fa-check highlight"></i> AI-Driven Resume Engineering</p>
+        <p><i class="fas fa-check highlight"></i> Recruiter Visibility Booster</p>
+        <p><i class="fas fa-check highlight"></i> Strategic Connection Blueprinting</p>
+    </div>
+
+    <!-- Contact Form -->
+       <div class="contact-section" style="padding: 40px 0;">
+    <div class="contact-container" style="max-width: 800px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+        <div class="contact-header" style="background: #00796b; padding: 30px; border-radius: 15px 15px 0 0; text-align: center; color: white;">
+            <h2 style="margin: 0; font-size: 2rem;">🚀 Launch Your Biotech Career Now!</h2>
+            <p style="margin: 15px 0 0;">Get personalized guidance from India's top career architects</p>
+        </div>
+
+        <form class="career-form" style="padding: 30px;">
+            <div class="form-step active" data-step="1">
+                <h3 style="color: #00796b; margin-bottom: 20px;"><span class="step-number" style="background: #00796b; color: white; padding: 5px 12px; border-radius: 50%; margin-right: 10px;">1</span> Tell Us About Yourself</h3>
+                
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">🎯 What's Your Career Goal?</label>
+                    <div class="goal-select" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div class="goal-option" style="padding: 15px; border: 2px solid #00796b; border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                            <i class="fas fa-microscope" style="font-size: 1.5rem; margin-bottom: 10px; color: #00796b;"></i>
+                            <p style="margin: 0;">Research Scientist</p>
+                        </div>
+                        <div class="goal-option" style="padding: 15px; border: 2px solid #00796b; border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s;">
+                            <i class="fas fa-industry" style="font-size: 1.5rem; margin-bottom: 10px; color: #00796b;"></i>
+                            <p style="margin: 0;">Industry Professional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">📧 Supercharge Your Inbox</label>
+                    <input type="email" placeholder="Enter your professional email" 
+                           style="width: 100%; padding: 12px; border: 2px solid #00796b; border-radius: 8px; font-size: 1rem;">
+                </div>
+            </div>
+
+            <div class="form-step" data-step="2" style="display: none;">
+                <h3 style="color: #00796b; margin-bottom: 20px;"><span class="step-number" style="background: #00796b; color: white; padding: 5px 12px; border-radius: 50%; margin-right: 10px;">2</span> Career Boost Preferences</h3>
+                
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">💼 Current Career Status</label>
+                    <select style="width: 100%; padding: 12px; border: 2px solid #00796b; border-radius: 8px; font-size: 1rem;">
+                        <option>Student/Fresh Graduate</option>
+                        <option>Early Career (1-3 years)</option>
+                        <option>Mid-Level Professional</option>
+                        <option>Career Changer</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: bold;">📆 Schedule Free Consultation</label>
+                    <div class="calendar-cta" style="background: #e3f2fd; padding: 15px; border-radius: 8px; text-align: center; cursor: pointer;">
+                        <i class="fas fa-calendar-check" style="color: #00796b; margin-right: 10px;"></i>
+                        <span style="font-weight: bold;">Click to Choose Your Preferred Slot</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-cta" style="text-align: center; margin-top: 30px;">
+                <button type="submit" 
+                        style="background: #00796b; color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; position: relative;">
+                    <span style="position: relative; z-index: 2;">Launch My Career 🚀</span>
+                    <div class="hover-effect" style="position: absolute; top: 0; left: 0; width: 0; height: 100%; background: #004d40; border-radius: 30px; transition: all 0.3s;"></div>
+                </button>
+                <p style="margin-top: 15px; font-size: 0.9em;">🔒 256-bit SSL Encrypted Submission</p>
+            </div>
+        </form>
+
+        <div class="success-message" style="display: none; padding: 30px; text-align: center;">
+            <div style="font-size: 4rem; color: #00796b;">🎉</div>
+            <h3 style="color: #00796b; margin: 20px 0;">Career Launch Sequence Initiated!</h3>
+            <p>Our team will beam your personalized career plan within 24 hours</p>
+            <div class="next-steps" style="margin-top: 30px;">
+                <p>📲 Check your email for next steps</p>
+                <p>💬 WhatsApp Updates Enabled</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Goal selection interaction
+    document.querySelectorAll('.goal-option').forEach(option => {
+        option.addEventListener('click', function() {
+            document.querySelectorAll('.goal-option').forEach(opt => 
+                opt.style.backgroundColor = '');
+            this.style.backgroundColor = '#e3f2fd';
+        });
+    });
+
+    // Calendar CTA interaction
+    document.querySelector('.calendar-cta').addEventListener('click', function() {
+        window.location.href = '#calendar'; // Replace with actual calendar link
+    });
+
+    // Form submission animation
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        this.style.display = 'none';
+        document.querySelector('.success-message').style.display = 'block';
+    });
+});
+</script>
+</main>
+
+<div id="footer"></div>
+
+<script>
+    // Load Header/Footer
+    function loadHeaderAndFooter() {
+        fetch('header.html').then(res => res.text()).then(html => document.getElementById('header').innerHTML = html);
+        fetch('footer.html').then(res => res.text()).then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+
+    // Contact Form Interactions
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.goal-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.goal-option').forEach(opt => 
+                    opt.style.backgroundColor = '');
+                this.style.backgroundColor = '#e3f2fd';
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
