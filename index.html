@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTGenZ - Unlocking Biotech Careers & Research</title>
+    <title>BTGenZ - Shaping the Future of Biotech Careers</title>
     <style>
         /* Basic Reset */
         * {
@@ -14,34 +14,31 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f0f4f8;
+            color: #333;
         }
 
         main {
-             padding: 20px;
+            padding: 20px;
             background-color: white;
             max-width: 1200px;
             margin: 20px auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #00796b;
+            margin-bottom: 15px;
         }
 
         h1 {
-            font-size: 2rem;
-            color: #005f73;
-            margin-bottom: 10px;
-        }
-        h2, h3 {
-            font-size: 1.5rem;
-            color: #005f73;
+            font-size: 2.2rem;
         }
 
         p {
+            line-height: 1.8;
             font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
             margin-bottom: 15px;
         }
 
@@ -49,132 +46,185 @@
             margin-bottom: 30px;
         }
 
-        .highlight {
-            background-color: #f59e0b;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
         }
 
         .infographic {
-            background-color: #e0f7fa;
-            padding: 15px;
-            font-weight: bold;
-            text-align: center;
-            border: 2px solid #00b4d8;
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infographic::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background-color: #00796b;
+            transform: rotate(45deg);
+            opacity: 0.2;
         }
 
         .infographic h3 {
+            color: #00796b;
             margin-bottom: 10px;
-            color: #1e3a8a;
             font-size: 1.5rem;
-        }
-        
-        ul {
-            list-style-type: square;
-            padding-left: 30px;
         }
 
         .infographic ul {
             list-style: none;
+            padding: 0;
         }
 
         .infographic li {
-            margin: 5px 0;
+            margin: 8px 0;
             font-size: 1rem;
+        }
+
+        .highlight {
+            background-color: #00796b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .stat-boxes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            flex: 1 1 calc(50% - 15px);
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-left: 5px solid #00796b;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
         }
 
         .cta {
             text-align: center;
-            margin-top: 20px;
+            margin: 30px 0;
         }
 
         .cta a {
-            background-color: #1e3a8a;
+            background-color: #00796b;
             color: white;
             padding: 12px 30px;
-            text-decoration: none;
             font-size: 1rem;
+            text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
 
         .cta a:hover {
-            background-color: #f59e0b;
+            background-color: #004d40;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            .stat-box {
+                flex: 1 1 100%;
             }
             p {
-                font-size: 0.9rem;
-            }
-            .cta a {
-                padding: 10px 20px;
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Header Load (Universal Header Placeholder) -->
+<!-- Universal Header -->
 <div id="header"></div>
 
 <main>
-    <h1>Welcome to <span class="highlight">BTGenZ</span> - Your Gateway to Biotech Careers & Research</h1>
-    <p>At BTGenZ, we are passionate about connecting talented biotech professionals with the best opportunities across India and the globe. Our platform is your one-stop destination for:</p>
+    <h1>Welcome to <span class="highlight">BTGenZ</span> — Powering the Next Generation of Biotech Careers</h1>
+    <p>The Biotechnology sector is **booming**, and India stands at the forefront of this scientific revolution. Yet, countless talented professionals go unnoticed due to poor online visibility and lack of career strategy.</p>
+    <p>At <strong>BTGenZ</strong>, we bridge this gap — **empowering biotech enthusiasts, students, and professionals** with:</p>
+    <ul>
+        <li>✅ Latest global & Indian job openings</li>
+        <li>✅ Research updates from India’s top labs</li>
+        <li>✅ Expert career grooming & LinkedIn SEO</li>
+    </ul>
 
-    <section>
-        <h2>🌐 Job Openings & Career Opportunities</h2>
-        <p>We bring you the latest job openings, internships, and career advancements from top biotech companies, research institutes, and startups — both in India and internationally.</p>
-    </section>
-
-    <section>
-        <h2>🔬 Research & Innovation Insights</h2>
-        <p>Stay updated with cutting-edge research happening in India's biotech sector. From groundbreaking discoveries to government initiatives, we keep you informed.</p>
-    </section>
-
+    <!-- Infographic: India's Biotech Boom -->
     <section class="infographic">
-        <h3>📊 Why BTGenZ Matters — The Biotech Reality in India</h3>
+        <h3>India’s Biotech Landscape (2025)</h3>
         <ul>
-            <li>India ranks among the <b>Top 12 Global Biotech Hubs</b></li>
-            <li>Over <b>600+ Biotechnology Startups</b> established in the last 5 years</li>
-            <li>However, <b>78% of Skilled Biotech Graduates</b> struggle to get discovered on LinkedIn or Job Portals.</li>
-            <li>Due to <b>Poor Profile Optimization & Visibility</b>, talent often goes unnoticed.</li>
+            <li>🇮🇳 <b>Top 12 Global Biotech Hubs</b> by innovation output.</li>
+            <li>⚗️ Over <b>600+ biotech startups</b> launched in the last 5 years.</li>
+            <li>📉 Yet, <b>78% skilled professionals struggle</b> with LinkedIn visibility.</li>
+            <li>❌ Lack of **Profile Optimization & Personal Branding** keeps talent hidden.</li>
         </ul>
     </section>
 
+    <!-- Our Services Highlight -->
     <section>
-        <h2>💼 Our Expert Services</h2>
+        <h2>💼 What We Offer</h2>
+        <p>From landing your **first research internship** to securing your **dream biotech job**, we provide the tools you need:</p>
         <ul>
-            <li>Professional Grooming - Build a Job-Winning Resume</li>
-            <li>SEO Optimized LinkedIn Profile Building</li>
-            <li>Research-Based Career Guidance for Biotech Professionals</li>
+            <li>📣 Latest Job Alerts (Govt & Private)</li>
+            <li>🔬 Research News & Innovation Updates</li>
+            <li>✍️ Professional Resume & Cover Letter Services</li>
+            <li>🔗 LinkedIn Profile Optimization (SEO)</li>
+            <li>⚙️ Career Grooming Sessions (Interview Skills, Branding)</li>
         </ul>
-        <p>Whether you’re a student stepping into biotechnology or a professional looking to advance, BTGenZ is your trusted guide.</p>
     </section>
 
+    <!-- Fast Stats Section -->
+    <section class="stat-boxes">
+        <div class="stat-box">+₹10,000 Cr Investments in Indian Biotech (2023)</div>
+        <div class="stat-box">5,000+ Jobs Created Annually in Life Sciences</div>
+        <div class="stat-box">90% of Recruiters Search LinkedIn First</div>
+        <div class="stat-box">Only 22% Profiles Optimized for Discovery</div>
+    </section>
+
+    <!-- Why Choose BTGenZ -->
+    <section class="infographic">
+        <h3>Why BTGenZ?</h3>
+        <ul>
+            <li>🚀 Tailored for **Biotech Only** (no generic content)</li>
+            <li>🌐 Covers Jobs + Research + Career Grooming in One Platform</li>
+            <li>🎓 Guided by Industry Experts & Career Coaches</li>
+            <li>⚡ Actionable, Real-World Insights — No Fluff!</li>
+        </ul>
+    </section>
+
+    <!-- Call to Action -->
     <div class="cta">
-        <p>Start your Biotech Career Transformation today!</p>
-        <a href="services.html">Explore Our Services</a>
+        <p>Your **Biotech Breakthrough** Starts Here!</p>
+        <a href="/services.html">Explore Our Services</a>
     </div>
+
 </main>
 
-<!-- Footer Load (Universal Footer Placeholder) -->
+<!-- Universal Footer -->
 <div id="footer"></div>
 
-<!-- Load Header and Footer Scripts -->
 <script>
     function loadHeaderAndFooter() {
         fetch('header.html')
             .then(response => response.text())
-            .then(data => document.getElementById('header').innerHTML = data);
-
+            .then(html => document.getElementById('header').innerHTML = html);
+        
         fetch('footer.html')
             .then(response => response.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
+            .then(html => document.getElementById('footer').innerHTML = html);
     }
 
     loadHeaderAndFooter();
