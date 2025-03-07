@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Refund Policy - BTGenZ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; }
+        main {
+            padding: 20px;
+            background-color: white;
+            max-width: 1200px;
+            margin: 20px auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 { color: #00796b; margin-bottom: 15px; }
+        p { line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
+        ul { list-style-type: square; padding-left: 20px; margin-bottom: 15px; }
+        .highlight { background-color: #00796b; color: white; padding: 5px 10px; border-radius: 5px; }
+        .content-box {
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            border-left: 5px solid #d32f2f;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta a {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #004d40, #00796b);
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+    <h1>Refund Policy - <span class="highlight">BTGenZ</span></h1>
+
+    <p>At <b>BTGenZ</b>, we are dedicated to providing top-notch career and research services specifically designed for biotechnology professionals. Since our products and services are "digital in nature" and involve immediate delivery of expertise and content, we follow a "strict No Refund Policy".</p>
+
+    <div class="content-box">
+        <h3>⚠️ No Refunds Once Service Starts</h3>
+        <p>When you purchase any of our services, such as LinkedIn Profile Optimization, Resume Writing, or Career Grooming, the work begins immediately. Since these are "personalized, knowledge-based services", once the process starts, "we cannot offer any refunds".</p>
+    </div>
+
+    <h2>Why No Refund?</h2>
+    <ul>
+        <li>✅ Every service is "customized to your profile and career goals".</li>
+        <li>✅ Time, research, and expertise go into crafting your "perfect resume, profile, or strategy".</li>
+        <li>✅ Once knowledge is shared, it cannot be "unshared".</li>
+        <li>✅ Our prices are structured to be affordable while delivering "maximum value upfront".</li>
+    </ul>
+
+    <h2>Transparency Before Purchase</h2>
+    <p>To make sure you are confident before placing an order, we provide:</p>
+    <ul>
+        <li>📄 Clear service descriptions on every page.</li>
+        <li>💬 Direct communication (you can contact us if you need clarification before buying).</li>
+        <li>📩 Pre-service consultation if needed (so you know exactly what to expect).</li>
+    </ul>
+
+    <h2>What If There’s an Issue?</h2>
+    <p>While refunds are not available, we are "always here to support you". If you have any concerns about the service you received, we will work closely with you to "make things right" through:</p>
+    <ul>
+        <li>✅ Revisions (if your initial expectations were not met).</li>
+        <li>✅ Additional guidance (if you need more help applying the content we created).</li>
+    </ul>
+
+    <h2>Contact Us Anytime</h2>
+    <p>If you have questions or want to clarify any part of this Refund Policy before purchasing, please reach out to:</p>
+    <ul>
+        <li>Email: <a href="mailto:support@btgenz.smthing.in">support@btgenz.smthing.in</a></li>
+        <li>Phone: +91-99999-99999</li>
+    </ul>
+
+    <div class="cta">
+        <a href="/">Back to Home</a>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+    function loadHeaderAndFooter() {
+        fetch('header.html').then(response => response.text()).then(html => document.getElementById('header').innerHTML = html);
+        fetch('footer.html').then(response => response.text()).then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+
+</body>
+</html>
