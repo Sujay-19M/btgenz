@@ -131,3 +131,20 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     background: linear-gradient(135deg, #004d40, #00796b);
 }
+        .stat-boxes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            flex: 1 1 calc(50% - 15px);
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-left: 5px solid #00796b;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+        }
