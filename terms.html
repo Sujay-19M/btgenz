@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Terms & Conditions - BTGenZ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; }
+        main {
+            padding: 20px;
+            background-color: white;
+            max-width: 1200px;
+            margin: 20px auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 { color: #00796b; margin-bottom: 15px; }
+        p { line-height: 1.8; font-size: 1rem; margin-bottom: 15px; }
+        ul { list-style-type: square; padding-left: 20px; margin-bottom: 15px; }
+        .highlight { background-color: #00796b; color: white; padding: 5px 10px; border-radius: 5px; }
+        .content-box {
+            background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            border-left: 5px solid #00796b;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta a {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #004d40, #00796b);
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+    <h1>Terms & Conditions - <span class="highlight">BTGenZ</span></h1>
+
+    <p>Welcome to <b>BTGenZ</b>, your trusted career and research companion in the world of biotechnology. Before using our website and services, please review these simple (yet important) Terms & Conditions. Let’s keep it clear, simple, and fair for everyone.</p>
+
+    <h2>1. Who We Are</h2>
+    <p>BTGenZ is a platform offering:</p>
+    <ul>
+        <li>Latest job updates in the biotechnology sector</li>
+        <li>Research news & insights</li>
+        <li>Career grooming and profile optimization services</li>
+    </ul>
+
+    <h2>2. Acceptance of Terms</h2>
+    <p>By using "btgenz.smthing.in", you automatically agree to these terms. If you disagree (which would make us sad), please avoid using our website or services.</p>
+
+    <h2>3. Your Responsibilities</h2>
+    <p>When you use our site or services, you agree to:</p>
+    <ul>
+        <li>Provide accurate information (especially if you want personalized services)</li>
+        <li>Respect our intellectual property (don’t copy our content without permission)</li>
+        <li>Use the site legally and ethically</li>
+    </ul>
+
+    <div class="content-box">
+        <h3>🚫 Don’t Spam or Misuse</h3>
+        <p>If you misuse our website (spamming, hacking, scraping, etc.), we reserve the right to "restrict your access" and "take legal action if needed".</p>
+    </div>
+
+    <h2>4. Our Content = Our Property</h2>
+    <p>All content on BTGenZ — articles, designs, logos, graphics — is owned by us (unless we explicitly mention a third party). You are free to "read, share, and learn", but "not copy or sell our content".</p>
+
+    <h2>5. Service Changes</h2>
+    <p>We are always improving BTGenZ — which means we may update, modify, or even remove parts of the site or services at any time, with or without notice. Don’t worry — big changes will always be announced.</p>
+
+    <div class="content-box">
+        <h3>⚖️ Liability Disclaimer</h3>
+        <p>We work hard to provide accurate job and research information, but we "can’t guarantee 100% accuracy" at all times (things change fast!). Use our information as a guide, but "do your own research too".</p>
+    </div>
+
+    <h2>6. External Links</h2>
+    <p>We may link to external sites (research papers, job portals, etc.), but once you leave BTGenZ, we can’t control what happens there. Their site = their rules.</p>
+
+    <h2>7. Payments (for Premium Services)</h2>
+    <p>If you buy any of our premium services (like LinkedIn SEO or Resume Building), you agree to our pricing and "no-refund policy" (because digital services can’t be “returned”). But don’t worry — our services deliver real value!</p>
+
+    <h2>8. Changes to Terms</h2>
+    <p>We might update these terms if needed — and we’ll post the "latest version" right here with the date.</p>
+
+    <h2>9. Contact Us</h2>
+    <p>Questions about these terms? Contact us anytime:</p>
+    <ul>
+        <li>Email: <a href="mailto:support@btgenz.smthing.in">support@btgenz.smthing.in</a></li>
+        <li>Phone: +91-99999-99999</li>
+    </ul>
+
+    <div class="cta">
+        <a href="/">Back to Home</a>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+    function loadHeaderAndFooter() {
+        fetch('header.html').then(response => response.text()).then(html => document.getElementById('header').innerHTML = html);
+        fetch('footer.html').then(response => response.text()).then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+
+</body>
+</html>
