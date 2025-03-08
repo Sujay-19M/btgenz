@@ -1,5 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 0; }
+        body { background: linear-gradient(135deg, #afb9b7, #697a76, #3d4d49); color: #333; padding: 0; }
         main {
             max-width: 1200px;
             margin: 0 auto;
