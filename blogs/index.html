@@ -10,10 +10,11 @@
         main {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #bbdefb;
+            background-color: white;
             padding: 0;
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
             border-radius: 8px;
+            text-align: center;
         }
         h1, h2 { text-align: center; color: #00796b; margin-bottom: 15px; }
         
@@ -120,6 +121,41 @@
         padding: 5px;
     }
 }
+/* Feature Blog Box */
+.feature-blog {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    margin-bottom: 20px;
+}
+
+/* Left Side (Text Content) */
+.feature-left {
+    flex: 1;
+    padding-right: 20px;
+}
+.feature-left h1 {
+    font-size: 2rem;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+.feature-left p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+.feature-left .author {
+    color: #ff6f00;
+    font-weight: bold;
+}
+.feature-left .date {
+    color: #00796b;
+}
+
 
 
     </style>
@@ -129,8 +165,14 @@
 <div id="header"></div>
 
 <main>
-    <h1>Welcome to the BTGenZ Blog</h1>
-    <p>Latest biotech trends, job opportunities, and research insights.</p>
+    <section class="feature-blog">
+    <div class="feature-left">
+        <h1>Welcome to the BTGenZ Blog! (Part 1)</h1>
+        <p><b>"Explore the latest biotech trends, job opportunities, and cutting-edge research insights at BTGenZ Blog. Stay updated on innovations in gene editing, personalized medicine, and the biotech industry’s future."</b></p>
+        <p><strong class="author">Sujay Mukherjee</strong> on <span class="date">March 8, 2024</span></p>
+    </div>
+    <div class="feature-right"></div>
+</section>
 
     <!-- Popular This Month -->
     <section class="popular-section">
