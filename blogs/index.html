@@ -2,165 +2,10 @@
 <html lang="en">
 <head>
     <title>BTGenZ Blog - Latest Insights & Opportunities</title>
+    <link rel="stylesheet" href="/blogs/assets/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 0; }
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        h1, h2 { text-align: center; color: #00796b; margin-bottom: 15px; }
-        
-        /* Popular This Month */
-        .popular-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin: 30px 0;
-            padding: 10px;
-            background: linear-gradient(135deg, #bbdefb, #e3f2fd, #00796b);
-            border-radius: 10px;
-            position: relative;
-        }
-        .popular-title {
-            text-align: center;
-            width: 160px;  /* Set a fixed vertical rectangle width */
-            height: 220px;  /* Ensure it remains rectangular */
-            padding: 20px;
-            border-radius: 12px;
-            position: relative;
-            background: linear-gradient(-35deg, #9b60f0, #e3f2fd, #f060a1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 3px solid transparent;
-            animation: neonBorder 2s infinite alternate;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 160px;
-            flex: 0 0 auto; /* Makes it non-resizable */
-        }
-        .popular-title .large { font-size: 2rem; color: #00796b; font-weight: bold; }
-        .popular-title .small { font-size: 1.2rem; color: #444; }
-        .popular-title .highlight { color: #f59e0b; }
-        
-        @keyframes neonBorder {
-            0% { border-color: #ff6f00; }
-            50% { border-color: #00796b; }
-            100% { border-color: #ff4081; }
-        }
-
-        /* Blog Cards */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .blog-card {
-            overflow: hidden;
-            border-radius: 12px;
-            background-color: #bdbdbd;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            width: 180px;  /* Set fixed vertical rectangle width */
-            max-width: 250px; /* ✅ Prevents it from being too large */
-            height: 200px; /* Ensure it remains tall */
-            flex: 0 0 auto;
-            display: flex;
-            flex-direction: column;
-            scroll-snap-align: center;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-
-        /* Horizontal Scroll Sections */
-        .scroll-section {
-            overflow-x: auto;
-            display: flex;
-            gap: 15px;
-            padding: 10px;
-        }
-        .scroll-section .blog-card {
-            min-width: 250px;
-            flex: 0 0 auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .scroll-section .blog-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-
-        /* Responsive Font Sizes */
-@media (max-width: 768px) {
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-    p { font-size: 0.9rem; }
-
-    /* Reduce "Popular This Month" Title Size */
-    .popular-title .large { font-size: 1.5rem; }
-    .popular-title .small { font-size: 1rem; }
-    
-    /* Adjust Blog Card Font Size */
-    .blog-card h3 { font-size: 1rem; }
-    .blog-card p { font-size: 0.85rem; }
-
-    /* Ensure Horizontal Scroll Works Smoothly */
-    .scroll-section {
-        gap: 10px;
-        padding: 5px;
-    }
-}
-/* Feature Blog Box */
-.feature-blog {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    margin-bottom: 20px;
-}
-
-/* Left Side (Text Content) */
-.feature-left {
-    flex: 1;
-    padding-right: 20px;
-}
-.feature-left h1 {
-    font-size: 2rem;
-    color: #00796b;
-    margin-bottom: 10px;
-}
-.feature-left p {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.5;
-}
-.feature-left .author {
-    color: #ff6f00;
-    font-weight: bold;
-}
-.feature-left .date {
-    color: #00796b;
-}
-
-
-
-    </style>
-</head>
+    </head>
 <body>
 
 <div id="header"></div>
@@ -168,12 +13,29 @@
 <main>
     <section class="feature-blog">
     <div class="feature-left">
-        <h1>Welcome to the BTGenZ Blog! (Part 1)</h1>
-        <p><b>"Explore the latest biotech trends, job opportunities, and cutting-edge research insights at BTGenZ Blog. Stay updated on innovations in gene editing, personalized medicine, and the biotech industry’s future."</b></p>
-        <p><strong class="author">Sujay Mukherjee</strong> on <span class="date">March 8, 2024</span></p>
+        <h1>Welcome to the BTGenZ Blog!</h1>
     </div>
     <div class="feature-right"></div>
 </section>
+
+<div class="article-box">
+    <div class="article-image">
+        <img src="https://media.istockphoto.com/id/1306526412/photo/men-working-in-laptop-at-office.jpg?s=2048x2048&w=is&k=20&c=23hYepSO4mSVETLLk0e-OyXYpfE7ZQH0yeaFn80WG7k=" alt="Article Image">
+    </div>
+    <div class="article-content">
+        <h2 class="article-title">Welcome to the BTGenZ Blog!</h2>
+        <p class="article-category">BTGenZ Blogs</p>
+        <p class="article-meta">
+            By <strong class="author">Sujay Mukherjee</strong> | 
+            <span class="date">March 8, 2024</span> | 
+            <span class="read-time">⏳ 5 min read</span>
+        </p>
+        <p class="article-description">
+            <b>"Explore the latest biotech trends, job opportunities, and cutting-edge research insights at BTGenZ Blog. Stay updated on innovations in gene editing, personalized medicine, and the biotech industry’s future."</b>
+        </p>
+        <a href="#" class="read-more">Read More →</a>
+    </div>
+</div>
 
     <!-- Popular This Month -->
     <section class="popular-section">
@@ -184,10 +46,29 @@
             <p class="powered-by">Powered by <strong>BTGenZ</strong></p>
         </div>
         <div class="scroll-section">
-            <div class="blog-card"><img src="images/popular1.jpg" alt="Blog"><div class="blog-card-content"><p>Article Sub-Category\Release Date</p><h3>Gene Therapy Advances: Latest Breakthroughs in Gene Editing</h3><p>latest breakthroughs in gene therapy.</p><br><p>Author Name</p></div></div>
-            <div class="blog-card"><img src="images/popular2.jpg" alt="Blog"><div class="blog-card-content"><p>Article Sub-Category\Release Date</p><h3>Top Biotech Careers</h3><p>Where the industry is heading.</p><br><p>Author Name</p></div></div>
+            <div class="blog-card"><img src="https://media.istockphoto.com/id/1416029563/photo/metaverse-digital-cyber-world-technology-man-with-virtual-reality-vr-goggle-playing-ar.jpg?s=2048x2048&w=is&k=20&c=KN7rVHc8QAJRhd-VVI9ofTeUtaglUFuVtWbj1pfd2lQ=" alt="Blog"><div class="blog-card-content"><p>Article Sub-Category\Release Date</p><h3>Gene Therapy Advances: Latest Breakthroughs in Gene Editing</h3><p>latest breakthroughs in gene therapy.</p><br><p>Author Name</p></div></div>
+            <div class="blog-card"><img src="https://media.istockphoto.com/id/1416029563/photo/metaverse-digital-cyber-world-technology-man-with-virtual-reality-vr-goggle-playing-ar.jpg?s=2048x2048&w=is&k=20&c=KN7rVHc8QAJRhd-VVI9ofTeUtaglUFuVtWbj1pfd2lQ=" alt="Blog"><div class="blog-card-content"><p>Article Sub-Category\Release Date</p><h3>Top Biotech Careers</h3><p>Where the industry is heading.</p><br><p>Author Name</p></div></div>
         </div>
     </section>
+    
+    <div class="article-box">
+    <div class="article-image">
+        <img src="https://media.istockphoto.com/id/1306526412/photo/men-working-in-laptop-at-office.jpg?s=2048x2048&w=is&k=20&c=23hYepSO4mSVETLLk0e-OyXYpfE7ZQH0yeaFn80WG7k=" alt="Article Image">
+    </div>
+    <div class="article-content">
+        <h2 class="article-title">The Future of CRISPR Gene Editing</h2>
+        <p class="article-category">🔬 Research & Innovation</p>
+        <p class="article-meta">
+            <span class="author">By Sujay Mukherjee</span> | 
+            <span class="date">March 8, 2024</span> | 
+            <span class="read-time">⏳ 5 min read</span>
+        </p>
+        <p class="article-description">
+            CRISPR is revolutionizing biotech! Learn how gene editing is shaping the future of medicine, agriculture, and more.
+        </p>
+        <a href="#" class="read-more">Read More →</a>
+    </div>
+</div>
     
     
     <section class="popular-section">
@@ -260,3 +141,4 @@
 
 </body>
 </html>
+    
