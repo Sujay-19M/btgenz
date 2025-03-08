@@ -9,7 +9,14 @@
             border-radius: 8px;
             text-align: center;
         }
-        h1, h2 { text-align: center; color: #00796b; margin-bottom: 15px; }
+        h1, h2 { 
+          text-align: center; 
+          color: #dea85f;
+          margin-bottom: 15px; 
+          font-size: 2rem; 
+          font-weight: bold; 
+          
+        }
         
         /* Popular This Month */
         .popular-section {
@@ -98,6 +105,33 @@
             height: 50%; /* Adjust image to fit */
             object-fit: cover;
         }
+        .section-heading {
+            font-size: 3.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+/* Slanted Underline Effect */
+.section-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 100%;
+    max-width: 250px;  /* ✅ Prevents underline from being too long on big screens */
+    height: 4px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    transform: skewX(-20deg) translateX(-50%);
+    border-radius: 5px;
+}
 
         /* Responsive Font Sizes */
 @media (max-width: 768px) {
@@ -269,5 +303,14 @@
 
     .article-title {
         font-size: 1.0rem;
+    }
+    .section-heading {
+        font-size: 1.8rem;  /* ✅ Smaller size for better readability */
+        padding-bottom: 6px;
+    }
+    
+    .section-heading::after {
+        max-width: 180px;  /* ✅ Adjusts underline width */
+        height: 3px;  /* ✅ Thinner underline for mobile */
     }
 }
