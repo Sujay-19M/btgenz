@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BTGenZ Blog - Latest Insights & Opportunities</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f0f4f8; color: #333; padding: 20px; }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 15px;
+        }
+        p {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .blog-card {
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .blog-card-content {
+            padding: 15px;
+        }
+        .blog-card h3 {
+            font-size: 1.2rem;
+            color: #00796b;
+            margin-bottom: 5px;
+        }
+        .blog-card p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        .data-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .data-box strong {
+            color: #00796b;
+            font-size: 1.2rem;
+        }
+        .research-list {
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .research-list h3 {
+            color: #00796b;
+            margin-bottom: 10px;
+        }
+        .research-list ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        .research-list a {
+            text-decoration: none;
+            color: #00796b;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .research-list a:hover {
+            color: #f59e0b;
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .blog-card img { height: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="header"></div>
+
+<main>
+    <h1>Welcome to the BTGenZ Blog</h1>
+    <p>Your one-stop hub for <b>biotech job trends, research breakthroughs, career hacks, and industry insights</b>.</p>
+
+    <div class="data-box">
+        <p><strong>Did You Know?</strong><br>
+        India’s biotech industry is expected to hit <strong>$150 billion</strong> by 2025, creating over <strong>5 million jobs</strong>.</p>
+    </div>
+
+    <h2>Explore Our Latest Blogs</h2>
+    <div class="blog-grid" id="blogGrid">
+        <!-- Blog Cards will auto-generate here -->
+    </div>
+
+    <div class="research-list">
+        <h3>Featured Research Papers & Reports (Recommended Reading)</h3>
+        <ul>
+            <li><a href="https://www.ibef.org/industry/biotechnology-presentation" target="_blank">India Biotechnology Industry Report (IBEF)</a></li>
+            <li><a href="https://www.nature.com/articles/s41587-023-01533-7" target="_blank">Cutting-edge Biotech Discoveries (Nature Journal)</a></li>
+            <li><a href="https://dst.gov.in/sites/default/files/Indian%20Biotechnology%20Ecosystem%20-%20Evolution%20and%20the%20Road%20Ahead.pdf" target="_blank">Govt of India: Roadmap for Biotechnology 2030</a></li>
+            <li><a href="https://www.who.int/publications/i/item/9789240058565" target="_blank">WHO Report on Global Biotech Trends</a></li>
+        </ul>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script>
+    const blogs = [
+        {
+            title: "Top 10 Biotech Jobs in 2025 You Should Know",
+            description: "Explore the most in-demand biotechnology jobs and how to prepare for them.",
+            image: "images/biotech-jobs.jpg",
+            link: "blogs/biotech-jobs-2025.html"
+        },
+        {
+            title: "5 Breakthrough Research Projects Happening in India Right Now",
+            description: "Discover the latest biotech research initiatives shaping India's future.",
+            image: "images/research-projects.jpg",
+            link: "blogs/research-projects-2025.html"
+        },
+        {
+            title: "LinkedIn SEO for Biotech Professionals - Complete Guide",
+            description: "Learn how to optimize your LinkedIn profile to attract top recruiters.",
+            image: "images/linkedin-seo.jpg",
+            link: "blogs/linkedin-seo-guide.html"
+        }
+    ];
+
+    const blogGrid = document.getElementById('blogGrid');
+
+    blogs.forEach(blog => {
+        const blogCard = document.createElement('div');
+        blogCard.classList.add('blog-card');
+        blogCard.innerHTML = `
+            <a href="${blog.link}" style="text-decoration: none; color: inherit;">
+                <img src="${blog.image}" alt="${blog.title}">
+                <div class="blog-card-content">
+                    <h3>${blog.title}</h3>
+                    <p>${blog.description}</p>
+                </div>
+            </a>
+        `;
+        blogGrid.appendChild(blogCard);
+    });
+
+    function loadHeaderAndFooter() {
+        fetch('header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+
+    loadHeaderAndFooter();
+</script>
+
+</body>
+</html>
