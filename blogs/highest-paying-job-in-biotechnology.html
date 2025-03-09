@@ -240,8 +240,11 @@
     
 </head>
 <body>
+
+    <div id="header"></div>
+    
   <main>
-      <div id="header"></div>
+      
     
             <div class="content-wrapper">
         <!-- Main Blog Content -->
@@ -353,9 +356,25 @@
             </div>
         </aside>
     </div>
-      
-      <div id="footer"></div>
     
     </main>
+
+    <div id="footer"></div>
+
+    <script>
+    function loadHeaderAndFooter() {
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+    
 </body>
 </html>
+
+
