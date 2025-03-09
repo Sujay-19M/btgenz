@@ -315,3 +315,253 @@
         height: 3px;  /* ✅ Thinner underline for mobile */
     }
 }
+
+
+
+
+
+
+
+        /* 🔥 Author Box (Below Blog Title) */
+.author-box {
+    display: flex;
+    justify-content: space-between;
+    background: #f7f7f7;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+/* Left Section: Author Info */
+.author-info {
+    display: flex;
+    align-items: center;
+}
+
+.author-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Author Name (Glowing Effect on Hover) */
+.author-name {
+    font-weight: bold;
+    color: #00796b;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.author-name:hover {
+    color: #ff6f00;
+    text-shadow: 0 0 10px rgba(255, 111, 0, 0.6);
+}
+
+/* Right Section: Reads & Shares */
+.article-stats {
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.article-stats p {
+    margin: 3px 0;
+}
+
+/* 🌟 Sidebar Author Box */
+.author-sidebar {
+    text-align: center;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.author-sidebar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Sidebar Author Social Links */
+.author-social {
+    margin-top: 10px;
+}
+
+.author-social a {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #FFC300, #FF5733, #C70039);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.author-social a:hover {
+    background: linear-gradient(135deg, #DAF7A6, #b8bb0d, #52bb0d);
+}
+
+/* 📌 Mobile Adjustments */
+@media (max-width: 768px) {
+    .author-box {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    .article-stats {
+        margin-top: 1px;
+    }
+}
+
+        
+        
+        
+        /* Wrapper for Two-Column Layout */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Sidebar - Stays on the Right */
+.sidebar {
+   width: 300px;
+    position: sticky;
+    top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    float: right;
+    margin-left: 20px;
+}
+
+/* Sidebar Boxes */
+.sidebar-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* Search Box */
+.search-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-box button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    background: linear-gradient(135deg, #DAF7A6, #b8bb0d, #52bb0d);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Blog Tags */
+.tags a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 3px;
+    background: linear-gradient(145deg, #0dbbab, #0fd1c2, #C70039);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.tags a:hover {
+    background: linear-gradient(135deg, #FFC300, #FF5733, #C70039);
+}
+
+/* Subscription Box */
+.subscription-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.subscription-box button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    background: linear-gradient(135deg, #d1240f, #ffbe32, #C70039);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Latest Blogs */
+.latest-blogs p a {
+    display: block;
+    color: #3498db;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.latest-blogs p a:hover {
+    text-decoration: underline;
+}
+/* Hover Effect */
+.search-box button:hover {
+    background: #f78e19;  /* Darker Blue */
+    transform: scale(1.05);  /* Slightly Enlarges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adds Shadow */
+}
+
+/* Active (Click) Effect */
+.search-box button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.subscription-box button:hover {
+    background: linear-gradient(135deg, #FFC300, #FF5733, #C70039);  /* Darker Blue */
+    transform: scale(1.05);  /* Slightly Enlarges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adds Shadow */
+}
+
+/* Active (Click) Effect */
+.subscription-box button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide Sidebar on Mobile, Keep Subscription Box */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    /* Only Show Subscription Box in Mobile */
+    .subscription-box {
+        display: block;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+}
