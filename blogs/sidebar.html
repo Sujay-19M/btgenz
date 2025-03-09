@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTGenZ Sidebar</title>
+
+<style>
+/* Wrapper for Two-Column Layout */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Sidebar - Stays on the Right */
+.sidebar {
+   width: 300px;
+    position: sticky;
+    top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    float: right;
+    margin-left: 20px;
+}
+
+/* Sidebar Boxes */
+.sidebar-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* Search Box */
+.search-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-box button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Blog Tags */
+.tags a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px 3px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.tags a:hover {
+    background: #2980b9;
+}
+
+/* Subscription Box */
+.subscription-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.subscription-box button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Latest Blogs */
+.latest-blogs p a {
+    display: block;
+    color: #3498db;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.latest-blogs p a:hover {
+    text-decoration: underline;
+}
+/* Hover Effect */
+.search-box button:hover {
+    background: #f78e19;  /* Darker Blue */
+    transform: scale(1.05);  /* Slightly Enlarges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adds Shadow */
+}
+
+/* Active (Click) Effect */
+.search-box button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.subscription-box button:hover {
+    background: #5abb0d;  /* Darker Blue */
+    transform: scale(1.05);  /* Slightly Enlarges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Adds Shadow */
+}
+
+/* Active (Click) Effect */
+.subscription-box button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide Sidebar on Mobile, Keep Subscription Box */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    /* Only Show Subscription Box in Mobile */
+    .subscription-box {
+        display: block;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+}
+</style>
+div class="content-wrapper">
+        <!-- Main Blog Content -->
+        <main class="main-content">
+        </main>
+  <aside class="sidebar">
+    <!-- Search Bar -->
+    <div class="sidebar-box search-box">
+        <h3>🔍 Search</h3>
+        <form action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" placeholder="Search...">
+            <input type="hidden" name="sitesearch" value="btgenz.com">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <!-- Blog Tags -->
+    <div class="sidebar-box tags-box">
+        <h3>🏷 Popular Tags</h3>
+        <div class="tags">
+            <a href="#">#Biotech</a>
+            <a href="#">#Careers</a>
+            <a href="#">#AI</a>
+            <a href="#">#Genetics</a>
+            <a href="#">#Jobs</a>
+        </div>
+    </div>
+
+    <!-- Subscription Box -->
+    <div class="sidebar-box subscription-box">
+        <h3>✉ Subscribe for Updates</h3>
+        <form action="https://yourmailchimpurl.com/subscribe/post" method="POST">
+            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <!-- Latest Blogs -->
+    <div class="sidebar-box latest-blogs">
+        <h3>📰 Latest Blogs</h3>
+        <p><a href="#">How AI is Changing Biotech</a></p>
+        <p><a href="#">Best Biotech Careers in 2025</a></p>
+        <p><a href="#">CRISPR and the Future of Medicine</a></p>
+        <p><a href="#">Breaking Into Biotech as a Student</a></p>
+    </div>
+
+    <!-- Ad Space -->
+    <div class="sidebar-box ad-box">
+        <h3>📢 Advertisement</h3>
+        <p>Your Ad Here</p>
+    </div>
+</aside>
+
+
