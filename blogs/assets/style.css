@@ -332,6 +332,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin: 20px 0;
     font-size: 1rem;
+    text-align: center;
 }
 
 /* Left Section: Author Info */
@@ -459,6 +460,11 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.sidebar-box h3 {
+  text-align: center;
+}
+
 /* Search Box */
 .search-box input {
     width: 100%;
