@@ -186,6 +186,9 @@
     </style>
 </head>
 <body>
+    
+    <div id="header"></div>
+    
     <div class="container">
         <aside class="sidebar">
             <img src="https://media.licdn.com/dms/image/v2/D5603AQEeeS5H6Rjsng/profile-displayphoto-shrink_200_200/B56ZTl3MUOGQAY-/0/1739023238855?e=1747267200&v=beta&t=zDIzntA755gOlI4dEyJDTaaWdF5-cmeSPiRYFUouhyI" alt="Sujay Mukherjee" class="profile-img">
@@ -263,5 +266,20 @@
             </div>
         </main>
     </div>
+    
+    <div id="footer"></div>
+
+    <script>
+    function loadHeaderAndFooter() {
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
 </body>
 </html>
