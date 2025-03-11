@@ -67,7 +67,7 @@
         .blog-card {
             overflow: hidden;
             border-radius: 12px;
-            background-color: linear-gradient(-35deg, #222831, #393E46);
+            background-color: linear-gradient(135deg, #e3f2fd, #bbdefb);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
@@ -78,7 +78,10 @@
             display: flex;
             flex-direction: column;
             scroll-snap-align: center;
-            font-color: white;
+            color: gold;
+        }
+        .blog-card h3 {
+                color: white;
         }
         
         .blog-card:hover {
