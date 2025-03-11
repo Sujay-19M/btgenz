@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About BTGenZ - Your Career & Research Companion</title>
     <style>
-        /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,14 +14,17 @@
 
         body {
             background-color: #f9f9f9;
+            color: #333;
         }
 
         main {
-            padding: 20px;
+            padding: 30px;
             background-color: white;
-            max-width: 1200px;
-            margin: 20px auto;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 1100px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            text-align: justify;
         }
 
         h1, h2, h3 {
@@ -30,37 +32,42 @@
             margin-bottom: 10px;
         }
 
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
         p {
             font-size: 1rem;
-            color: #555;
             line-height: 1.6;
             margin-bottom: 15px;
         }
 
         ul {
-            list-style-type: square;
-            padding-left: 20px;
-            margin-bottom: 15px;
+            list-style-type: none;
+            padding-left: 0;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .infographic {
-            background-color: #e0f7fa;
-            padding: 15px;
+        ul li::before {
+            content: "\2022";
+            color: #00b4d8;
             font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #e0f7fa;
+            padding: 15px;
             text-align: center;
+            font-weight: bold;
             border: 2px solid #00b4d8;
+            border-radius: 12px;
             margin: 20px 0;
         }
 
@@ -85,126 +92,92 @@
 
         @media (max-width: 768px) {
             main {
-                padding: 15px;
+                padding: 20px;
             }
-
             h1 {
                 font-size: 1.5rem;
             }
-
             p {
                 font-size: 0.9rem;
-            }
-
-            .cta a {
-                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
 
-<div id="header"></div>
+    <div id="header"></div>
 
 <main>
-    <h1>About Us - <span style="color:#f59e0b;">BTGenZ</span></h1>
+    <h1>About <span style="color:#f59e0b;">BTGenZ</span></h1>
 
-    <p>Welcome to BTGenZ — your career companion and knowledge hub, dedicated to empowering <strong>Biotechnology enthusiasts, job seekers, and professionals</strong> across India and the world.</p>
-
-    <h2>Who We Are</h2>
-    <p>At BTGenZ, we believe every career has a story — and we help you write yours with the right opportunities, the right skills, and the right exposure.</p>
-    <p>We are a dynamic career & research-focused platform bringing you:</p>
-    <ul>
-        <li>Latest job openings across India and globally.</li>
-        <li>Insights into trending research fields within Biotechnology and Life Sciences in India.</li>
-        <li>Expert tips on self-grooming, interview hacks, and how to confidently face the competitive job market.</li>
-    </ul>
-
-    <h2>Our Vision</h2>
-    <p>To bridge the gap between talented Biotechnology enthusiasts and the rapidly evolving research and job ecosystem in India and beyond.</p>
-
-    <h2>What We Do</h2>
-
-    <h3>1. Job Alerts & Opportunities</h3>
-    <p>We curate and publish up-to-date job openings from:</p>
-    <ul>
-        <li>Government sectors</li>
-        <li>Private companies</li>
-        <li>Research labs & Institutions</li>
-        <li>Startups & Global Biotech firms</li>
-    </ul>
-    <p>Stay ahead of the crowd with exclusive insights into application processes, eligibility criteria, and expert tips to increase your chances of selection.</p>
-
-    <h3>2. Research News & Innovations</h3>
-    <p>India’s biotechnology landscape is booming, but reliable research updates are hard to find. We simplify this with:</p>
-    <ul>
-        <li>Easy-to-read updates on ongoing research projects.</li>
-        <li>Breakdowns of new discoveries and their impact.</li>
-        <li>Insights into how India’s biotech sector is shaping the global future.</li>
-    </ul>
-
-    <h3>3. Career Grooming Services</h3>
-    <p>It’s not just about applying — it’s about presenting yourself smartly. Our career grooming services guide you through:</p>
-    <ul>
-        <li>Building the perfect LinkedIn profile (SEO Tips to rank higher in recruiter searches)</li>
-        <li>Writing professional resumes & cover letters that stand out.</li>
-        <li>Cracking interviews with smart answers, confidence building, and body language tips.</li>
-        <li>Creating a personal brand as a Biotech professional online.</li>
-    </ul>
-
-    <h3>4. Personal Branding & LinkedIn SEO</h3>
-    <p>Your LinkedIn profile can either hide you or highlight you — we teach you how to:</p>
-    <ul>
-        <li>Optimize your LinkedIn for SEO so recruiters find you first.</li>
-        <li>Use powerful keywords for better visibility.</li>
-        <li>Showcase your projects, skills, and expertise in a way that fits ATS (Applicant Tracking Systems).</li>
-    </ul>
-
-    <h3>5. Career Guides for Biotech Freshers & Students</h3>
-    <p>We also offer beginner-friendly guides on:</p>
-    <ul>
-        <li>How to choose the right specialization.</li>
-        <li>Government vs Private Jobs – Which is better?</li>
-        <li>Higher Studies in India vs Abroad – What’s the right path?</li>
-    </ul>
-
-    <h2>Why Choose BTGenZ?</h2>
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th>Why It Matters</th>
-        </tr>
-        <tr>
-            <td>Tailored for Biotechnology</td>
-            <td>Specific to your field, no generic content.</td>
-        </tr>
-        <tr>
-            <td>Job + Research + Grooming</td>
-            <td>One-stop platform for your career & knowledge.</td>
-        </tr>
-        <tr>
-            <td>Industry Experts</td>
-            <td>Biotech professionals, HR experts & career mentors.</td>
-        </tr>
-        <tr>
-            <td>Practical Insights</td>
-            <td>Only actionable strategies you can actually use.</td>
-        </tr>
-    </table>
-
-    <div class="infographic">
-        <p>How BTGenZ Works For You:</p>
-        <p>Opportunity Discovery → Career Grooming → Profile Optimization → Application Tips → Research Insights → Job Success</p>
+    <div class="section">
+        <p>Welcome to <strong>BTGenZ</strong> — your career companion and knowledge hub, dedicated to empowering <strong>Biotechnology enthusiasts, job seekers, and professionals</strong> across India and beyond.</p>
     </div>
 
-    <h2>Our Mission</h2>
-    <p>To become the #1 trusted platform for Biotechnology careers & research updates in India, helping freshers, professionals, and researchers achieve their dreams.</p>
+    <div class="section">
+        <h2>Who We Are</h2>
+        <p>We help you shape your career with the right opportunities, skills, and exposure through:</p>
+        <ul>
+            <li>Latest job openings in India and worldwide.</li>
+            <li>Insights into trending Biotechnology research.</li>
+            <li>Expert tips on career growth and personal branding.</li>
+        </ul>
+    </div>
 
-    <h2>Meet Our Team</h2>
-    <p>We are Biotechnology enthusiasts, career experts, researchers, and content creators — all working to build India’s future workforce.</p>
+    <div class="section">
+        <h2>What We Offer</h2>
+        <h3>1. Job Alerts & Career Opportunities</h3>
+        <p>We provide up-to-date job postings from:</p>
+        <ul>
+            <li>Government & Private Sectors</li>
+            <li>Research Institutes & Startups</li>
+            <li>Global Biotech Firms</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>2. Research News & Innovations</h3>
+        <p>We simplify India's latest biotechnology research into easy-to-read updates, covering groundbreaking discoveries and their global impact.</p>
+    </div>
+
+    <div class="section">
+        <h3>3. Career Grooming & Personal Branding</h3>
+        <p>We guide you in:</p>
+        <ul>
+            <li>Crafting an optimized LinkedIn profile.</li>
+            <li>Building a standout resume & cover letter.</li>
+            <li>Mastering interview techniques.</li>
+            <li>Creating a strong online professional presence.</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <p><strong>BTGenZ Works For You:</strong></p>
+        <p>Opportunity Discovery → Career Grooming → Profile Optimization → Research Insights → Job Success</p>
+    </div>
+
+    <div class="section">
+        <h2>Why Choose BTGenZ?</h2>
+        <p>Unlike generic job platforms, we specialize in Biotechnology careers, ensuring:</p>
+        <ul>
+            <li>Field-specific content tailored for you.</li>
+            <li>Industry insights from experts.</li>
+            <li>Practical career strategies that work.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Our Mission</h2>
+        <p>To become the #1 trusted platform for Biotechnology careers & research in India, helping students, freshers, and professionals achieve their goals.</p>
+    </div>
+
+    <div class="cta">
+        <a href="#">Join BTGenZ Today</a>
+    </div>
 </main>
 
-<div id="footer"></div>
+    <div id="footer"></div>
+    
     <script>
     function loadHeaderAndFooter() {
         fetch('header.html').then(response => response.text()).then(data => document.getElementById('header').innerHTML = data);
