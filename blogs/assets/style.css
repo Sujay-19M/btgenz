@@ -327,6 +327,76 @@
 
 
 
+.author-bio {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.bio-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.author-bio img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.author-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.author-name:hover {
+    color: #008000;
+}
+
+.author-bio p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.author-bio button {
+    padding: 8px 15px;
+    border: none;
+    background: #008000;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.author-bio button:hover {
+    background: #006400;
+}
+@media (max-width: 768px) {
+    .author-bio {
+        font-size: 0.7rem;
+    }
+    
+    .author-bio button {
+      font-size: 0.5rem;
+    }
+
+
+}
+
+
+
 
 
 
