@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - BTGenZ</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        main {
+            padding: 30px;
+            background-color: white;
+            max-width: 1100px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            text-align: justify;
+        }
+
+        h1, h2, h3 {
+            color: #005f73;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li::before {
+            content: "\2022";
+            color: #00b4d8;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #e0f7fa;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #00b4d8;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #f59e0b;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 1.0rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            ul {
+            font-size: 0.8rem;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="header"></div>
+
+<main>
+    <h1>📢 Disclaimer</h1>
+
+    <div class="section">
+        <p>Welcome to <strong>BTGenZ</strong>. We are committed to providing high-quality content related to <b>biotechnology, research, and career opportunities</b>. However, before you rely on any information on our website, please read this disclaimer carefully.</p>
+    </div>
+
+    <div class="section">
+        <h2>🔍 General Information</h2>
+        <p>All the content on <b>BTGenZ</b> is for <b>informational and educational purposes only</b>. While we strive for accuracy, we cannot guarantee that every detail is up to date or error-free.</p>
+    </div>
+
+    <div class="section">
+        <h2>🤖 Use of AI in Content Creation</h2>
+        <p>We use "Artificial Intelligence (AI) tools" to enhance our research, improve readability, and generate well-structured content. However, every AI-assisted article is <b>reviewed and edited by human experts</b> before publication.</p>
+        <p><strong>What this means for you:</strong></p>
+        <ul>
+            <li>✅ AI helps us organize and simplify complex biotech topics.</li>
+            <li>✅ Humans fact-check, edit, and ensure content quality.</li>
+            <li>⚠️ Some AI-generated insights may still require independent verification.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>⚠️ Professional Advice Disclaimer</h2>
+        <p>We are "not medical, legal, or financial professionals". Any advice or insights shared on BTGenZ should "not" be taken as official guidance. Always consult with a certified expert before making important decisions.</p>
+    </div>
+
+    <div class="section">
+        <h2>🔗 External Links</h2>
+        <p>We may link to third-party websites for reference. However, "BTGenZ does not control or endorse external content", and we are not responsible for its accuracy.</p>
+    </div>
+
+    <div class="info-box">
+        <p>📢 <b>Transparency Matters!</b></p>
+        <p>We believe in responsible content creation and ensure our AI-assisted articles are "accurate, ethical, and human-reviewed".</p>
+    </div>
+
+    <div class="section">
+        <h2>📩 Contact Us</h2>
+        <p>If you have any questions about this disclaimer, please feel free to reach out to us at <a href="mailto:contact@btgenz.in">contact@btgenz.in</a>.</p>
+    </div>
+</main>
+
+    <div id="footer"></div>
+    
+    <script>
+    function loadHeaderAndFooter() {
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+
+</body>
+</html>
+
+        
+         
+    
