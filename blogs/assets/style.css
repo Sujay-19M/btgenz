@@ -70,7 +70,7 @@
         .blog-card {
             overflow: hidden;
             border-radius: 12px;
-            background-color: #ffffff; /* Clean white background */
+            background: linear-gradient(115deg, #A8E6CF, #FF8B66);
             box-shadow: 0 4px 12px rgba(0, 115, 230, 0.2); /* Soft blue shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
