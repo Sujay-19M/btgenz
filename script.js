@@ -41,11 +41,29 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(html => {
             document.body.insertAdjacentHTML("beforeend", html);
+            attachSubscribeBoxEvents(); // Ensures the toggle function works
         })
         .catch(error => console.error('Error loading subscribe box:', error));
 });
 
-function toggleSubscribeBox() {
+// ✅ Ensure toggle function is globally accessible
+window.toggleSubscribeBox = function () {
     let box = document.getElementById("subscribe-box");
-    box.style.display = (box.style.display === "block") ? "none" : "block";
+    if (box) {
+        box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+};
+
+// ✅ Attach events after the subscribe box loads
+function attachSubscribeBoxEvents() {
+    let minimizeButton = document.getElementById("subscribe-minimized");
+    if (minimizeButton) {
+        minimizeButton.onclick = toggleSubscribeBox;
+    }
+
+    let closeButton = document.getElementById("close-subscribe");
+    if (closeButton) {
+        closeButton.onclick = toggleSubscribeBox;
+    }
 }
+
