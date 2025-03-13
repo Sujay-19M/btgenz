@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright Notice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #00796b;
+            text-align: center;
+        }
+        h2 {
+            color: #005a4a;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        .infographic {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .infographic img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+  <div id="header"></div>
+  
+    <div class="container">
+        <h1>📜 Copyright Notice</h1>
+        
+        <p>Welcome to <strong>BTGenZ</strong>! We work hard to bring you valuable content, and we want to ensure that our efforts are protected. This Copyright Notice explains how our content can and cannot be used.</p>
+        
+        <h2>📌 What is Copyright?</h2>
+        <p>Copyright is a law that gives the creator of original content the exclusive rights to use and distribute it. This means <span class="highlight">BTGenZ owns everything we publish</span> unless stated otherwise.</p>
+        
+        <div class="infographic">
+            <img src="copyright-infographic.png" alt="Copyright Infographic">
+        </div>
+        
+        <h2>✔️ What You CAN Do:</h2>
+        <ul>
+            <li>✅ Share our blog posts on social media with proper credit.</li>
+            <li>✅ Use small excerpts (with attribution) for personal, educational, or non-commercial purposes.</li>
+            <li>✅ Reference our insights in your work, provided you <span class="highlight">link back</span> to the original article.</li>
+        </ul>
+        
+        <h2>❌ What You CANNOT Do:</h2>
+        <ul>
+            <li>🚫 Copy, reproduce, or republish our content without permission.</li>
+            <li>🚫 Use our content for commercial purposes without purchasing a license.</li>
+            <li>🚫 Claim our work as your own or mislead people about its source.</li>
+        </ul>
+        
+        <h2>📢 Why This Matters</h2>
+        <p>When content is copied without permission, it discourages creators from producing quality work. Supporting copyright helps maintain a fair and ethical digital space.</p>
+        
+        <div class="infographic">
+            <img src="protect-content.png" alt="Protecting Content">
+        </div>
+        
+        <p>Need permission for special usage? Contact us at <a href="mailto:contact@btgenz.com">contact@btgenz.com</a> for inquiries.</p>
+    </div>
+
+  <div id="footer"></div>
+
+  <script>
+    function loadHeaderAndFooter() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+        
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+
+    loadHeaderAndFooter();
+</script>
+  
+</body>
+</html>
