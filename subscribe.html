@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTGenZ Subscribe Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .subscribe-box {
+            position: fixed;
+            width: 300px;
+            background: #00796b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            z-index: 1000;
+        }
+        .subscribe-box.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        .subscribe-box .timer {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .subscribe-box h2 {
+            margin: 0 0 10px;
+        }
+        .subscribe-box button {
+            background: #fff;
+            color: #00796b;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .subscribe-box button:hover {
+            background: #f1f1f1;
+        }
+        .subscribe-btn {
+          display: inline-block;
+          background: #fff;
+          color: #00796b;
+          padding: 10px 15px;
+          font-weight: bold;
+          border-radius: 5px;
+          text-decoration: none;
+      }
+      .subscribe-btn:hover {
+          background: #f1f1f1;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="subscribe-box" id="subscribeBox">
+        <h2>Don't Miss Out!</h2>
+        <p>Subscribe now and stay ahead with exclusive content.</p>
+        <a href="https://outlook.us19.list-manage.com/subscribe/post?u=7f3d305e9a28d7d8f98ef6a6a&id=d96bc5a23f" class="subscribe-btn">Subscribe Now</a>
+        <p class="timer" id="timerText"></p>
+    </div>
+    
+    <script>
+        setTimeout(() => {
+            const box = document.getElementById('subscribeBox');
+            box.classList.add('show');
+            
+            setTimeout(() => {
+                let countdown = 10;
+                const timerText = document.getElementById('timerText');
+                timerText.innerText = `Closing in ${countdown}s...`;
+                
+                const timer = setInterval(() => {
+                    countdown--;
+                    timerText.innerText = `Closing in ${countdown}s...`;
+                    
+                    if (countdown === 0) {
+                        clearInterval(timer);
+                        box.classList.remove('show');
+                    }
+                }, 1000);
+            }, 4000);
+        }, 10000);
+        
+        function subscribeNow() {
+            alert('Thank you for subscribing!');
+            document.getElementById('subscribeBox').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
