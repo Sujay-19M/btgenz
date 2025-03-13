@@ -1,16 +1,15 @@
-// script.js
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Fix: Merging multiple event listeners into one
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
-    hamburger.addEventListener('click', function() {
-        mobileMenu.classList.toggle('active');
-    });
-});
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active');
+        });
+    }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Timed Popup Model
+    // ✅ Timed Popup Model - Shows After 10 Sec, Disappears After Countdown
     setTimeout(() => {
         let timedBox = document.createElement("div");
         timedBox.id = "timed-subscribe-box";
@@ -24,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         document.body.appendChild(timedBox);
 
+        // ✅ Remove after 10-second countdown
         setTimeout(() => {
             let countdown = 10;
             let interval = setInterval(() => {
@@ -34,36 +34,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }, 1000);
         }, 4000);
-    }, 10000); // Shows after 10 sec
+    }, 10000);
 
-    // Expandable Subscribe Box Model
+    // ✅ Load Expandable Subscribe Box & Attach Events Properly
     fetch('/subscribe-box.html')
         .then(response => response.text())
         .then(html => {
             document.body.insertAdjacentHTML("beforeend", html);
-            attachSubscribeBoxEvents(); // Ensures the toggle function works
+            console.log("Subscribe box loaded!");
+            attachSubscribeBoxEvents(); // ✅ Attach events only after loading
         })
         .catch(error => console.error('Error loading subscribe box:', error));
+
+    // ✅ Ensure toggle function is globally accessible
+    window.toggleSubscribeBox = function () {
+        let box = document.getElementById("subscribe-box");
+        if (box) {
+            box.style.display = (box.style.display === "block") ? "none" : "block";
+        }
+    };
+
+    // ✅ Attach events to Subscribe Box Elements
+    function attachSubscribeBoxEvents() {
+        let minimizeButton = document.getElementById("subscribe-minimized");
+        let closeButton = document.getElementById("close-subscribe");
+
+        if (minimizeButton) {
+            minimizeButton.addEventListener("click", toggleSubscribeBox);
+        }
+
+        if (closeButton) {
+            closeButton.addEventListener("click", toggleSubscribeBox);
+        }
+    }
 });
-
-// ✅ Ensure toggle function is globally accessible
-window.toggleSubscribeBox = function () {
-    let box = document.getElementById("subscribe-box");
-    if (box) {
-        box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
-};
-
-// ✅ Attach events after the subscribe box loads
-function attachSubscribeBoxEvents() {
-    let minimizeButton = document.getElementById("subscribe-minimized");
-    if (minimizeButton) {
-        minimizeButton.onclick = toggleSubscribeBox;
-    }
-
-    let closeButton = document.getElementById("close-subscribe");
-    if (closeButton) {
-        closeButton.onclick = toggleSubscribeBox;
-    }
-}
-
