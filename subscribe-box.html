@@ -1,0 +1,70 @@
+<div id="subscribe-container">
+    <div id="subscribe-minimized" onclick="toggleSubscribeBox()">
+        ✉ Subscribe
+    </div>
+    <div id="subscribe-box">
+        <h3>✉ Stay Updated</h3>
+        <form action="https://outlook.us19.list-manage.com/subscribe/post?u=7f3d305e9a28d7d8f98ef6a6a&id=d96bc5a23f" 
+              method="POST" target="_blank">
+            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <span id="close-subscribe" onclick="toggleSubscribeBox()">✖</span>
+    </div>
+</div>
+<style>
+/* Timed Popup Box */
+#timed-subscribe-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00796b;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+/* Expandable Subscribe Box */
+#subscribe-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Minimized Subscribe Button */
+#subscribe-minimized {
+    background: #f59e0b;
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+#subscribe-minimized:hover {
+    background: #ff6600;
+    color: white;
+}
+
+/* Subscribe Box */
+#subscribe-box {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#close-subscribe {
+    cursor: pointer;
+    color: red;
+    float: right;
+    font-weight: bold;
+}
+</style>
