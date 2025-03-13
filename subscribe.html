@@ -10,99 +10,122 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Floating Subscribe Button */
+        .subscribe-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00796b;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px #00796b;
+            animation: glow 1.5s infinite alternate;
+            border: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #00796b; }
+            100% { box-shadow: 0 0 20px #00ffcc; }
+        }
+
+        /* Subscribe Box */
         .subscribe-box {
             position: fixed;
-            width: 300px;
-            background: #00796b;
-            color: #fff;
+            width: 320px;
+            background: white;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
+            bottom: 80px;
+            right: 20px;
+            transform: scale(0);
             opacity: 0;
-            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
             z-index: 1000;
         }
-        .subscribe-box.show {
-            transform: translate(-50%, -50%) scale(1);
+
+        /* Show when checkbox is checked */
+        #toggle:checked ~ .subscribe-box {
+            transform: scale(1);
             opacity: 1;
         }
-        .subscribe-box .timer {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 10px;
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0.5; }
-        }
+
         .subscribe-box h2 {
-            margin: 0 0 10px;
-        }
-        .subscribe-box button {
-            background: #fff;
+            margin-bottom: 10px;
             color: #00796b;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
+        }
+
+        .subscribe-box input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #00796b;
             border-radius: 5px;
         }
-        .subscribe-box button:hover {
-            background: #f1f1f1;
-        }
-        .subscribe-btn {
-          display: inline-block;
-          background: #fff;
-          color: #00796b;
-          padding: 10px 15px;
-          font-weight: bold;
-          border-radius: 5px;
-          text-decoration: none;
-      }
-      .subscribe-btn:hover {
-          background: #f1f1f1;
-      }
 
+        .subscribe-box button {
+            background: #00796b;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .subscribe-box button:hover {
+            background: #005a4f;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #00796b;
+            font-weight: bold;
+        }
+
+        /* Hidden Checkbox Trick */
+        #toggle {
+            display: none;
+        }
+
+        /* Label acts as a button */
+        label[for="toggle"] {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="subscribe-box" id="subscribeBox">
-        <h2>Don't Miss Out!</h2>
-        <p>Subscribe now and stay ahead with exclusive content.</p>
-        <a href="https://outlook.us19.list-manage.com/subscribe/post?u=7f3d305e9a28d7d8f98ef6a6a&id=d96bc5a23f" class="subscribe-btn">Subscribe Now</a>
-        <p class="timer" id="timerText"></p>
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="toggle">
+
+    <!-- Label for the Subscribe Button -->
+    <label for="toggle" class="subscribe-btn">Subscribe</label>
+
+    <!-- Subscribe Box -->
+    <div class="subscribe-box">
+        <label for="toggle" class="close-btn">×</label> <!-- Close Button -->
+        <h2>Subscribe Now!</h2>
+        <p>Join now for exclusive updates.</p>
+
+        <form action="https://outlook.us19.list-manage.com/subscribe/post?u=7f3d305e9a28d7d8f98ef6a6a&id=d96bc5a23f" method="post" target="_blank">
+            <input type="email" name="EMAIL" placeholder="Enter your email" required>
+            <button type="submit">Subscribe Now</button>
+        </form>
     </div>
-    
-    <script>
-        setTimeout(() => {
-            const box = document.getElementById('subscribeBox');
-            box.classList.add('show');
-            
-            setTimeout(() => {
-                let countdown = 10;
-                const timerText = document.getElementById('timerText');
-                timerText.innerText = `Closing in ${countdown}s...`;
-                
-                const timer = setInterval(() => {
-                    countdown--;
-                    timerText.innerText = `Closing in ${countdown}s...`;
-                    
-                    if (countdown === 0) {
-                        clearInterval(timer);
-                        box.classList.remove('show');
-                    }
-                }, 1000);
-            }, 4000);
-        }, 10000);
-        
-        function subscribeNow() {
-            alert('Thank you for subscribing!');
-            document.getElementById('subscribeBox').classList.remove('show');
-        }
-    </script>
 </body>
 </html>
