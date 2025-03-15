@@ -414,7 +414,7 @@
 
 }
 
-<------- Back to Blog Box -------->
+<------- Back-to-Blog Box -------->
 .back-to-blog {
     text-align: center;
     margin: 30px 0;
@@ -452,7 +452,7 @@
     display: block;
 }
 
-<------- Index Box -------->
+<------- Table-of-Content Box -------->
 /* Styling links inside .article-index */
 .article-index .dropdown-content a {
     text-decoration: none;
