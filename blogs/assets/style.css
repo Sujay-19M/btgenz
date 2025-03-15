@@ -325,6 +325,25 @@
     }
 }
 
+/* Styles for dropdown sections */
+        .dropdown {
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
 
 
 .author-bio {
