@@ -485,14 +485,21 @@
 
 <----------- MORE RESOURCES -------------->
 .more-resources-box {
-    width: 300px; /* Adjust width as needed */
+    width: 300px; /* Adjust width */
     padding: 15px;
     background-color: #f4f4f4; /* Light gray background */
     border: 2px solid #00796b; /* Border color */
     border-radius: 8px; /* Rounded corners */
-    position: relative; /* Ensures it stays within normal flow */
-    left: 0; /* Moves it to the left */
-    text-align: left;
+    text-align: left; /* Ensure text stays aligned left */
+    
+    /* Move it to the left */
+    margin: 20px 0; /* Adds spacing */
+    display: block; /* Ensure it acts like a block element */
+}
+
+.container { 
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
 }
 
 .more-resources h3 {
