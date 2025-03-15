@@ -453,17 +453,22 @@
 }
 
 <------- Index Box -------->
-.article-index a {
+/* Styling links inside .article-index */
+.article-index .dropdown-content a {
     text-decoration: none;
     color: #00796b; /* Default color */
     font-weight: 500;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, text-decoration-color 0.3s ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: transparent; /* Hide underline initially */
 }
 
-.article-index a:hover {
+.article-index .dropdown-content a:hover {
     color: orange; /* Hover color */
+    text-decoration-color: orange; /* Underline appears on hover */
 }
 
+<----------- MORE RESOURCES -------------->
 .more-resources {
     text-align: left;
     margin-bottom: 20px;
