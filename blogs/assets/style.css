@@ -433,7 +433,42 @@
 }
 
 
+.more-resources ul {
+    list-style-type: none;
+    padding: 0;
+}
 
+.more-resources li {
+    margin: 5px 0;
+}
+
+.more-resources a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    position: relative;
+    display: inline-block; /* Ensures underline only extends to text length */
+    transition: color 0.3s ease-in-out;
+}
+
+.more-resources a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: green;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.more-resources a:hover {
+    color: orange;
+}
+
+.more-resources a:hover::after {
+    background-color: orange;
+}
 
 
 
