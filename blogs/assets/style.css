@@ -485,31 +485,34 @@
 
 <----------- MORE RESOURCES -------------->
 .more-resources {
+    position: absolute;
+    left: 20px; /* Adjust the left position as needed */
+    top: 50px; /* Adjust vertical positioning */
+    width: 250px; /* Set a defined width */
     text-align: left;
-    margin-bottom: 20px;
-    margin-top: 30px;
-        
 }
 
 .more-resources h3 {
-        color: #00796b;
+    color: #00796b;
 }
 
 .more-resources ul {
     list-style-type: none;
-    padding: 10;
+    padding-left: 0;
+    margin: 0;
 }
 
 .more-resources li {
     margin: 5px 0;
 }
 
+/* Ensuring links look good */
 .more-resources a {
     text-decoration: none;
     color: black;
     font-weight: 500;
     position: relative;
-    display: inline-block; /* Ensures underline only extends to text length */
+    display: inline-block;
     transition: color 0.3s ease-in-out;
 }
 
@@ -530,6 +533,11 @@
 
 .more-resources a:hover::after {
     background-color: orange;
+}
+
+/* Ensure main retains its layout */
+main {
+    position: relative; /* Needed for absolute positioning to work */
 }
 
 
