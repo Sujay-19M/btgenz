@@ -455,6 +455,11 @@
     text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
+        
+}
+
+.more-resources h3 {
+        color: #00796b;
 }
 
 .more-resources ul {
