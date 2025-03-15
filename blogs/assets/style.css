@@ -451,10 +451,13 @@
     display: block;
 }
 
+.more-resources {
+    text-align: left;
+}
 
 .more-resources ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10;
 }
 
 .more-resources li {
