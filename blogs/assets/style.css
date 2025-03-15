@@ -447,7 +447,7 @@
 }
 
 .back-button:hover {
-    background-color: #f59e0b;
+    background-color: #fffff;
 }
 
 <------- Featured Image Box -------->
@@ -484,10 +484,10 @@
 }
 
 <----------- MORE RESOURCES -------------->
-.main-content .more-resources {
+.more-resources {
     text-align: left;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
         
 }
 
