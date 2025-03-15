@@ -19,6 +19,21 @@
           font-weight: bold; 
           
         }
+
+        /* General Link Styling - Apply to All Links */
+        main a {
+            text-decoration: none;
+            color: #00796b; /* Default color */
+            font-weight: 500;
+            transition: color 0.3s ease-in-out, text-decoration-color 0.3s ease-in-out;
+            text-decoration: underline;
+            text-decoration-color: transparent; /* Hide underline initially */
+        }
+        
+        main a:hover {
+            color: orange; /* Hover color */
+            text-decoration-color: orange; /* Underline appears on hover */
+        }
         
         /* Popular This Month */
         .popular-section {
@@ -453,11 +468,11 @@
 }
 
 <------- Table-of-Content Box -------->
-/* Styling links inside .article-index */
+/* Specific Styling for Table of Contents (article-index) */
 .article-index .dropdown-content a {
     text-decoration: none;
     color: #00796b; /* Default color */
-    font-weight: 500;
+    font-weight: 600;
     transition: color 0.3s ease-in-out, text-decoration-color 0.3s ease-in-out;
     text-decoration: underline;
     text-decoration-color: transparent; /* Hide underline initially */
