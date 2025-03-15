@@ -484,11 +484,14 @@
 }
 
 <----------- MORE RESOURCES -------------->
-.more-resources {
-    position: absolute;
-    left: 20px; /* Adjust the left position as needed */
-    top: 50px; /* Adjust vertical positioning */
-    width: 250px; /* Set a defined width */
+.more-resources-box {
+    width: 300px; /* Adjust width as needed */
+    padding: 15px;
+    background-color: #f4f4f4; /* Light gray background */
+    border: 2px solid #00796b; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    position: relative; /* Ensures it stays within normal flow */
+    left: 0; /* Moves it to the left */
     text-align: left;
 }
 
@@ -498,15 +501,13 @@
 
 .more-resources ul {
     list-style-type: none;
-    padding-left: 0;
-    margin: 0;
+    padding: 0;
 }
 
 .more-resources li {
     margin: 5px 0;
 }
 
-/* Ensuring links look good */
 .more-resources a {
     text-decoration: none;
     color: black;
@@ -533,11 +534,6 @@
 
 .more-resources a:hover::after {
     background-color: orange;
-}
-
-/* Ensure main retains its layout */
-main {
-    position: relative; /* Needed for absolute positioning to work */
 }
 
 
