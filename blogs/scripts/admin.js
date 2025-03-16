@@ -4,15 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("submit-btn").addEventListener("click", function() {
         submitChanges();
     });
-
-    loadHeaderFooter();
 });
-
-// ✅ Load Universal Header & Footer
-function loadHeaderFooter() {
-    document.getElementById("header").innerHTML = '<object type="text/html" data="/universal/header.html" width="100%" height="auto"></object>';
-    document.getElementById("footer").innerHTML = '<object type="text/html" data="/universal/footer.html" width="100%" height="auto"></object>';
-}
 
 // ✅ Load Pending Comments
 async function loadComments() {
