@@ -280,44 +280,9 @@
 </form>
 
 <div id="message"></div>
-<div id="commentList"></div>
 
-<script>
-document.getElementById("commentForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    let full_name = document.getElementById("full-name").value;
-    let email = document.getElementById("email").value;
-    let comment = document.getElementById("comment").value;
-    let hide_info = document.getElementById("hide-info").checked;
-
-    let response = await fetch("https://comment.YOUR_SUBDOMAIN.workers.dev", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ full_name, email, comment, hide_info })
-    });
-
-    let result = await response.json();
-    document.getElementById("message").innerText = result.success || result.error;
-    document.getElementById("commentForm").reset();
-    fetchComments();
-});
-
-async function fetchComments() {
-    let response = await fetch("https://comment.YOUR_SUBDOMAIN.workers.dev");
-    let comments = await response.json();
-
-    let commentList = document.getElementById("commentList");
-    commentList.innerHTML = comments.map(comment =>
-        `<div class="comment">
-            <strong>${comment.name}</strong> <small>(${comment.timestamp})</small>
-            <p>${comment.comment}</p>
-        </div>`
-    ).join("");
-}
-
-fetchComments();
-</script>
+    <h3>📌 Recent Comments</h3>
+    <div id="commentsList"></div>
 
             </div>
     
