@@ -1,4 +1,10 @@
-const WORKER_URL = "https://comment.sujay-m-1194.workers.dev/"; // Replace with your actual Worker URL
+const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
+
+// ✅ Fix double slashes issue
+const response = await fetch(WORKER_URL.replace(/\/$/, "") + "/approved", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("commentForm");
