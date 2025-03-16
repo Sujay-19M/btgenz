@@ -257,7 +257,27 @@
                 <a href="/blogs/" class="back-button">⬅️ Back to Blogs</a>
             </div>
 
-             <iframe src="/blogs/comment.html" width="100%" height="400px" style="border: none;"></iframe>
+             <div class="comment-box">
+                <h3>💬 Share Your Thoughts</h3>
+                
+                <form>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" placeholder="Enter your full name" required>
+            
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+                    <label for="comment">Your Comment</label>
+                    <textarea id="comment" name="comment" placeholder="Write your comment..." required></textarea>
+            
+                    <div class="privacy-option">
+                        <input type="checkbox" id="hide-info" name="hide_info">
+                        <label for="hide-info">Keep my Name & Email Private</label>
+                    </div>
+            
+                    <button type="submit">Submit Comment</button>
+                </form>
+            </div>
     
     </main>
     
