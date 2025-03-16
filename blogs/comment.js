@@ -1,4 +1,4 @@
-const WORKER_URL = "https://comment.sujay-m-1194.workers.dev/"; // Replace with your actual Worker URL
+const WORKER_URL = "https://comment.sujay-m-1194.workers.dev"; 
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("commentForm");
@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
     async function loadComments() {
         try {
             const response = await fetch(WORKER_URL + "/approved");
+            if (!response.ok) throw new Error("Failed to fetch comments");
+
             const comments = await response.json();
-            
-            commentsList.innerHTML = ""; // Clear old comments
+            commentsList.innerHTML = "";
 
             comments.forEach(comment => {
                 const commentElement = document.createElement("div");
                 commentElement.classList.add("comment-entry");
-
-                commentElement.innerHTML = 
-                    <strong>${comment.name || "Anonymous"}</strong>
+                commentElement.innerHTML = `
+                    <strong>${comment.hide_info ? "Anonymous" : comment.name}</strong>
                     <p>${comment.comment}</p>
                     <small>${new Date(comment.timestamp).toLocaleString()}</small>
-                ;
+                `;
                 commentsList.appendChild(commentElement);
             });
         } catch (error) {
@@ -40,17 +40,17 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch(WORKER_URL, {
+            const response = await fetch(WORKER_URL + "/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
 
             if (response.ok) {
-                messageBox.innerHTML = "<p style='color: green;'>âœ… Comment submitted for review.</p>";
+                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted for review.</p>";
                 form.reset();
             } else {
-                messageBox.innerHTML = "<p style='color: red;'>âŒ Failed to submit!</p>";
+                messageBox.innerHTML = "<p style='color: red;'>❌ Failed to submit!</p>";
             }
         } catch (error) {
             console.error("Error submitting comment:", error);
