@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    loadComments();
+    loadComments(); // Load existing comments on page load
 
-    // Ensure submit button click event is correctly linked
+    // Listen for submit button click to handle form submission
     document.getElementById("submit-btn").addEventListener("click", function() {
         submitChanges();
     });
@@ -84,9 +84,36 @@ async function rejectComment(index) {
     }
 }
 
-// ✅ Submit all changes (can be further enhanced to submit the changes)
+// ✅ Submit all changes (including comment submission)
 async function submitChanges() {
-    alert("All changes submitted successfully!");
-    loadComments(); // Reload comments after submission
-}
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const comment = document.getElementById("comment").value;
 
+    if (!name || !email || !comment) {
+        alert("All fields are mandatory!");
+        return;
+    }
+
+    const commentData = {
+        name: name,
+        email: email,
+        comment: comment
+    };
+
+    try {
+        const response = await fetch("https://comment.sujay-m-1194.workers.dev/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(commentData)
+        });
+
+        if (!response.ok) throw new Error("Failed to submit comment");
+
+        alert("Comment Submitted Successfully!");
+        document.getElementById("comment-form").reset(); // Reset form fields after submission
+    } catch (error) {
+        alert("Error submitting comment: " + error.message);
+    }
+}
