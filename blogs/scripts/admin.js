@@ -88,3 +88,25 @@ async function submitChanges() {
     alert("All changes submitted successfully!");
     loadComments();
 }
+function displayPendingComments(comments) {
+  const container = document.getElementById("pending-comments");
+
+  comments.forEach((comment) => {
+    let commentElement = document.createElement("div");
+    commentElement.classList.add("comment-box");
+
+    // Show real details in admin panel
+    let commentHTML = `
+      <p><strong>Public Name:</strong> ${comment.name}</p>
+      <p><strong>Public Email:</strong> ${comment.email}</p>
+      <p><strong>Comment:</strong> ${comment.comment}</p>
+      <p style="color:red;"><strong>Real Name (Admin Only):</strong> ${comment.realName}</p>
+      <p style="color:red;"><strong>Real Email (Admin Only):</strong> ${comment.realEmail}</p>
+      <label><input type="checkbox" class="approve-checkbox"> Approve</label>
+      <button class="reject-button">Reject</button>
+    `;
+
+    commentElement.innerHTML = commentHTML;
+    container.appendChild(commentElement);
+  });
+}
