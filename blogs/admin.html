@@ -11,27 +11,71 @@
     </form>
 
     <script>
-        const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
+    const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
-        async function loadPendingComments() {
-            const response = await fetch(WORKER_URL + "/pending");
-            const comments = await response.json();
-            const container = document.getElementById("pendingComments");
-            container.innerHTML = "";
+    async function loadPendingComments() {
+        const response = await fetch(WORKER_URL + "/pending");
+        const comments = await response.json();
+        const container = document.getElementById("pendingComments");
+        container.innerHTML = "";
 
-            comments.forEach((comment, index) => {
-                const div = document.createElement("div");
-                div.innerHTML = `
-                    <input type="checkbox" id="approve-${index}" name="approve" value="${comment.email}|${comment.timestamp}">
-                    <label for="approve-${index}"><strong>${comment.name}</strong>: ${comment.comment}</label><br>
-                    <input type="text" placeholder="Reply (optional)" id="reply-${index}" name="reply"><br>
-                    <hr>
-                `;
-                container.appendChild(div);
+        comments.forEach((comment, index) => {
+            const div = document.createElement("div");
+            div.innerHTML = `
+                <input type="checkbox" id="approve-${index}" name="approve" value="${comment.email}|${comment.timestamp}">
+                <label for="approve-${index}"><strong>${comment.name}</strong>: ${comment.comment}</label><br>
+                <input type="text" placeholder="Reply (optional)" id="reply-${index}" name="reply"><br>
+                <hr>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    document.getElementById("commentsForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        
+        const checkboxes = document.querySelectorAll('input[name="approve"]:checked');
+        let approvedComments = [];
+        let rejectedComments = [];
+        let replies = {};
+
+        checkboxes.forEach((checkbox) => {
+            const [email, timestamp] = checkbox.value.split("|");
+            const replyInput = document.getElementById(`reply-${checkbox.id.split("-")[1]}`);
+            const replyText = replyInput.value.trim();
+
+            approvedComments.push({ email, timestamp });
+            if (replyText) {
+                replies[email] = replyText;
+            }
+        });
+
+        const uncheckedBoxes = document.querySelectorAll('input[name="approve"]:not(:checked)');
+        uncheckedBoxes.forEach((checkbox) => {
+            const [email, timestamp] = checkbox.value.split("|");
+            rejectedComments.push({ email, timestamp });
+        });
+
+        try {
+            const response = await fetch(WORKER_URL + "/moderate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ approvedComments, rejectedComments, replies })
             });
-        }
 
-        loadPendingComments();
-    </script>
+            if (response.ok) {
+                alert("✅ Moderation complete!");
+                loadPendingComments();
+            } else {
+                alert("❌ Failed to submit moderation.");
+            }
+        } catch (error) {
+            console.error("Error submitting moderation:", error);
+        }
+    });
+
+    loadPendingComments();
+</script>
+
 </body>
 </html>
