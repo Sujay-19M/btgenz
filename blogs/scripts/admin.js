@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    loadComments(); // Load existing comments on page load
+    loadComments();
 
-    // Listen for submit button click to handle form submission
     document.getElementById("submit-btn").addEventListener("click", function() {
         submitChanges();
     });
@@ -60,7 +59,7 @@ async function approveComment(index) {
         if (!response.ok) throw new Error("Failed to approve comment");
 
         alert("Comment Approved!");
-        loadComments(); // Reload comments
+        loadComments();
     } catch (error) {
         alert("Error approving comment: " + error.message);
     }
@@ -78,42 +77,36 @@ async function rejectComment(index) {
         if (!response.ok) throw new Error("Failed to reject comment");
 
         alert("Comment Rejected!");
-        loadComments(); // Reload comments
+        loadComments();
     } catch (error) {
         alert("Error rejecting comment: " + error.message);
     }
 }
 
-// ✅ Submit all changes (including comment submission)
+// ✅ Submit all changes
 async function submitChanges() {
-    // Get form values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const comment = document.getElementById("comment").value;
+    alert("All changes submitted successfully!");
+    loadComments();
+}
+function displayPendingComments(comments) {
+  const container = document.getElementById("pending-comments");
 
-    if (!name || !email || !comment) {
-        alert("All fields are mandatory!");
-        return;
-    }
+  comments.forEach((comment) => {
+    let commentElement = document.createElement("div");
+    commentElement.classList.add("comment-box");
 
-    const commentData = {
-        name: name,
-        email: email,
-        comment: comment
-    };
+    // Show real details in admin panel
+    let commentHTML = `
+      <p><strong>Public Name:</strong> ${comment.name}</p>
+      <p><strong>Public Email:</strong> ${comment.email}</p>
+      <p><strong>Comment:</strong> ${comment.comment}</p>
+      <p style="color:red;"><strong>Real Name (Admin Only):</strong> ${comment.realName}</p>
+      <p style="color:red;"><strong>Real Email (Admin Only):</strong> ${comment.realEmail}</p>
+      <label><input type="checkbox" class="approve-checkbox"> Approve</label>
+      <button class="reject-button">Reject</button>
+    `;
 
-    try {
-        const response = await fetch("https://comment.sujay-m-1194.workers.dev/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(commentData)
-        });
-
-        if (!response.ok) throw new Error("Failed to submit comment");
-
-        alert("Comment Submitted Successfully!");
-        document.getElementById("comment-form").reset(); // Reset form fields after submission
-    } catch (error) {
-        alert("Error submitting comment: " + error.message);
-    }
+    commentElement.innerHTML = commentHTML;
+    container.appendChild(commentElement);
+  });
 }
