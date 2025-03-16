@@ -1,59 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Approve Comments</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .comment-box { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
-        button { padding: 5px 10px; background: green; color: white; border: none; cursor: pointer; }
-    </style>
+    <title>Manage Comments</title>
 </head>
 <body>
-
     <h2>Pending Comments</h2>
-    <div id="pendingComments"></div>
+    <form id="commentsForm">
+        <div id="pendingComments"></div>
+        <button type="submit">Submit</button>
+    </form>
 
     <script>
-        const WORKER_URL = "https://comment.YOUR_SUBDOMAIN.workers.dev"; // Replace with your actual Worker URL
+        const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
-        async function fetchPendingComments() {
+        async function loadPendingComments() {
             const response = await fetch(WORKER_URL + "/pending");
             const comments = await response.json();
-            const pendingDiv = document.getElementById("pendingComments");
+            const container = document.getElementById("pendingComments");
+            container.innerHTML = "";
 
-            pendingDiv.innerHTML = ""; // Clear old comments
-
-            comments.forEach(comment => {
-                const commentDiv = document.createElement("div");
-                commentDiv.classList.add("comment-box");
-                commentDiv.innerHTML = `
-                    <strong>${comment.name}</strong>
-                    <p>${comment.comment}</p>
-                    <button onclick="approveComment('${comment.key}')">Approve</button>
+            comments.forEach((comment, index) => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <input type="checkbox" id="approve-${index}" name="approve" value="${comment.email}|${comment.timestamp}">
+                    <label for="approve-${index}"><strong>${comment.name}</strong>: ${comment.comment}</label><br>
+                    <input type="text" placeholder="Reply (optional)" id="reply-${index}" name="reply"><br>
+                    <hr>
                 `;
-                pendingDiv.appendChild(commentDiv);
+                container.appendChild(div);
             });
         }
 
-        async function approveComment(commentKey) {
-            const response = await fetch(WORKER_URL, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ key: commentKey })
-            });
-
-            if (response.ok) {
-                alert("Comment Approved!");
-                fetchPendingComments(); // Reload comments after approval
-            } else {
-                alert("Failed to approve comment!");
-            }
-        }
-
-        fetchPendingComments(); // Load comments on page load
+        loadPendingComments();
     </script>
-
 </body>
 </html>
