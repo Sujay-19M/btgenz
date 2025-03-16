@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Approve Comments</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .comment-box { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        button { padding: 5px 10px; background: green; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h2>Pending Comments</h2>
+    <div id="pendingComments"></div>
+
+    <script>
+        const WORKER_URL = "https://comment.YOUR_SUBDOMAIN.workers.dev"; // Replace with your actual Worker URL
+
+        async function fetchPendingComments() {
+            const response = await fetch(WORKER_URL + "/pending");
+            const comments = await response.json();
+            const pendingDiv = document.getElementById("pendingComments");
+
+            pendingDiv.innerHTML = ""; // Clear old comments
+
+            comments.forEach(comment => {
+                const commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment-box");
+                commentDiv.innerHTML = `
+                    <strong>${comment.name}</strong>
+                    <p>${comment.comment}</p>
+                    <button onclick="approveComment('${comment.key}')">Approve</button>
+                `;
+                pendingDiv.appendChild(commentDiv);
+            });
+        }
+
+        async function approveComment(commentKey) {
+            const response = await fetch(WORKER_URL, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ key: commentKey })
+            });
+
+            if (response.ok) {
+                alert("Comment Approved!");
+                fetchPendingComments(); // Reload comments after approval
+            } else {
+                alert("Failed to approve comment!");
+            }
+        }
+
+        fetchPendingComments(); // Load comments on page load
+    </script>
+
+</body>
+</html>
