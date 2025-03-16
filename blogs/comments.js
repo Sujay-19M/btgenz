@@ -1,15 +1,13 @@
+const WORKER_URL = "https://comment.sujay-m-1194.workers.dev/"; // Replace with your actual Worker URL
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("commentForm");
     const commentsList = document.getElementById("commentsList");
     const messageBox = document.getElementById("message");
 
-    // Cloudflare Worker URL
-    const WORKER_URL = "https://comment.sujay-m-1194.workers.dev/";
-
-    // Fetch and display comments
     async function loadComments() {
         try {
-            const response = await fetch(WORKER_URL);
+            const response = await fetch(WORKER_URL + "/approved");
             const comments = await response.json();
             
             commentsList.innerHTML = ""; // Clear old comments
@@ -30,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Submit comment
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -50,9 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             if (response.ok) {
-                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted!</p>";
+                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted for review.</p>";
                 form.reset();
-                loadComments(); // Reload comments dynamically
             } else {
                 messageBox.innerHTML = "<p style='color: red;'>❌ Failed to submit!</p>";
             }
@@ -61,6 +57,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Load comments when the page loads
     loadComments();
 });
