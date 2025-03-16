@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     loadComments();
 
+    // Ensure submit button click event is correctly linked
     document.getElementById("submit-btn").addEventListener("click", function() {
         submitChanges();
     });
@@ -59,7 +60,7 @@ async function approveComment(index) {
         if (!response.ok) throw new Error("Failed to approve comment");
 
         alert("Comment Approved!");
-        loadComments();
+        loadComments(); // Reload comments
     } catch (error) {
         alert("Error approving comment: " + error.message);
     }
@@ -77,36 +78,15 @@ async function rejectComment(index) {
         if (!response.ok) throw new Error("Failed to reject comment");
 
         alert("Comment Rejected!");
-        loadComments();
+        loadComments(); // Reload comments
     } catch (error) {
         alert("Error rejecting comment: " + error.message);
     }
 }
 
-// ✅ Submit all changes
+// ✅ Submit all changes (can be further enhanced to submit the changes)
 async function submitChanges() {
     alert("All changes submitted successfully!");
-    loadComments();
+    loadComments(); // Reload comments after submission
 }
-function displayPendingComments(comments) {
-  const container = document.getElementById("pending-comments");
 
-  comments.forEach((comment) => {
-    let commentElement = document.createElement("div");
-    commentElement.classList.add("comment-box");
-
-    // Show real details in admin panel
-    let commentHTML = `
-      <p><strong>Public Name:</strong> ${comment.name}</p>
-      <p><strong>Public Email:</strong> ${comment.email}</p>
-      <p><strong>Comment:</strong> ${comment.comment}</p>
-      <p style="color:red;"><strong>Real Name (Admin Only):</strong> ${comment.realName}</p>
-      <p style="color:red;"><strong>Real Email (Admin Only):</strong> ${comment.realEmail}</p>
-      <label><input type="checkbox" class="approve-checkbox"> Approve</label>
-      <button class="reject-button">Reject</button>
-    `;
-
-    commentElement.innerHTML = commentHTML;
-    container.appendChild(commentElement);
-  });
-}
