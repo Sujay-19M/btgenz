@@ -23,18 +23,20 @@
     <div id="footer"></div>
 
     <script src="/blogs/scripts/admin.js"></script>
+
+    <!-- ✅ Updated Header & Footer Script -->
+    <script>
+        function loadHeaderAndFooter() {
+            fetch('../header.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('header').innerHTML = html);
+
+            fetch('../footer.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('footer').innerHTML = html);
+        }
+        loadHeaderAndFooter();
+    </script>
+
 </body>
 </html>
-
-<script>
-    function loadHeaderAndFooter() {
-        fetch('../header.html')
-            .then(res => res.text())
-            .then(html => document.getElementById('header').innerHTML = html);
-
-        fetch('../footer.html')
-            .then(res => res.text())
-            .then(html => document.getElementById('footer').innerHTML = html);
-    }
-    loadHeaderAndFooter();
-</script>
