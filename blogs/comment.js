@@ -1,67 +1,42 @@
 const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
-// ✅ Fix double slashes issue
-const response = await fetch(WORKER_URL.replace(/\/$/, "") + "/approved", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" }
-});
+// ✅ Wrap fetch in an async function
+async function loadComments() {
+    try {
+        const response = await fetch(WORKER_URL.replace(/\/$/, "") + "/approved", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("commentForm");
+        if (!response.ok) throw new Error("Failed to fetch comments");
+
+        const comments = await response.json();
+        displayComments(comments);
+    } catch (error) {
+        console.error("Error loading comments:", error);
+    }
+}
+
+// ✅ Function to display comments
+function displayComments(comments) {
     const commentsList = document.getElementById("commentsList");
-    const messageBox = document.getElementById("message");
+    commentsList.innerHTML = ""; // Clear previous comments
 
-    async function loadComments() {
-        try {
-            const response = await fetch(WORKER_URL + "/approved");
-            const comments = await response.json();
-            
-            commentsList.innerHTML = ""; // Clear old comments
-
-            comments.forEach(comment => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment-entry");
-
-                commentElement.innerHTML = `
-                    <strong>${comment.name || "Anonymous"}</strong>
-                    <p>${comment.comment}</p>
-                    <small>${new Date(comment.timestamp).toLocaleString()}</small>
-                `;
-                commentsList.appendChild(commentElement);
-            });
-        } catch (error) {
-            console.error("Error loading comments:", error);
-        }
+    if (comments.length === 0) {
+        commentsList.innerHTML = "<p>No comments yet.</p>";
+        return;
     }
 
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const data = {
-            full_name: formData.get("full_name"),
-            email: formData.get("email"),
-            comment: formData.get("comment"),
-            hide_info: formData.get("hide_info") ? true : false
-        };
-
-        try {
-            const response = await fetch(WORKER_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted for review.</p>";
-                form.reset();
-            } else {
-                messageBox.innerHTML = "<p style='color: red;'>❌ Failed to submit!</p>";
-            }
-        } catch (error) {
-            console.error("Error submitting comment:", error);
-        }
+    comments.forEach(comment => {
+        const commentItem = document.createElement("div");
+        commentItem.classList.add("comment-item");
+        commentItem.innerHTML = `
+            <p><strong>${comment.name}</strong> (${new Date(comment.timestamp).toLocaleString()})</p>
+            <p>${comment.comment}</p>
+        `;
+        commentsList.appendChild(commentItem);
     });
+}
 
-    loadComments();
-});
+// ✅ Load comments on page load
+document.addEventListener("DOMContentLoaded", loadComments);
