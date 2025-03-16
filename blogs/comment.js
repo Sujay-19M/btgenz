@@ -1,4 +1,4 @@
-const WORKER_URL = "https://comment.sujay-m-1194.workers.dev"; 
+const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("commentForm");
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function loadComments() {
         try {
-            const response = await fetch(WORKER_URL + "/approved");
+            const response = await fetch(WORKER_URL + "/approved", { mode: "cors" });
             if (!response.ok) throw new Error("Failed to fetch comments");
 
             const comments = await response.json();
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = new FormData(form);
         const data = {
-            full_name: formData.get("full_name"),
+            name: formData.get("full_name"), // ✅ FIXED: Changed 'full_name' to 'name'
             email: formData.get("email"),
             comment: formData.get("comment"),
             hide_info: formData.get("hide_info") ? true : false
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const response = await fetch(WORKER_URL + "/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                mode: "cors", // ✅ FIXED: Added CORS mode
                 body: JSON.stringify(data)
             });
 
