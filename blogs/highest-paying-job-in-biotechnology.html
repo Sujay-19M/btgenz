@@ -261,22 +261,64 @@
                 <h3>💬 Share Your Thoughts</h3>
                 
                 <form>
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" name="full_name" placeholder="Enter your full name" required>
-            
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            
-                    <label for="comment">Your Comment</label>
-                    <textarea id="comment" name="comment" placeholder="Write your comment..." required></textarea>
-            
-                    <div class="privacy-option">
-                        <input type="checkbox" id="hide-info" name="hide_info">
-                        <label for="hide-info">Keep my Name & Email Private</label>
-                    </div>
-            
-                    <button type="submit">Submit Comment</button>
-                </form>
+                    <form id="commentForm">
+    <label for="full-name">Full Name</label>
+    <input type="text" id="full-name" name="full_name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="comment">Your Comment</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+    <div class="privacy-option">
+        <input type="checkbox" id="hide-info" name="hide_info">
+        <label for="hide-info">Keep my Name & Email Private</label>
+    </div>
+
+    <button type="submit">Submit Comment</button>
+</form>
+
+<div id="message"></div>
+<div id="commentList"></div>
+
+<script>
+document.getElementById("commentForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    let full_name = document.getElementById("full-name").value;
+    let email = document.getElementById("email").value;
+    let comment = document.getElementById("comment").value;
+    let hide_info = document.getElementById("hide-info").checked;
+
+    let response = await fetch("https://comment.YOUR_SUBDOMAIN.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ full_name, email, comment, hide_info })
+    });
+
+    let result = await response.json();
+    document.getElementById("message").innerText = result.success || result.error;
+    document.getElementById("commentForm").reset();
+    fetchComments();
+});
+
+async function fetchComments() {
+    let response = await fetch("https://comment.YOUR_SUBDOMAIN.workers.dev");
+    let comments = await response.json();
+
+    let commentList = document.getElementById("commentList");
+    commentList.innerHTML = comments.map(comment =>
+        `<div class="comment">
+            <strong>${comment.name}</strong> <small>(${comment.timestamp})</small>
+            <p>${comment.comment}</p>
+        </div>`
+    ).join("");
+}
+
+fetchComments();
+</script>
+
             </div>
     
     </main>
