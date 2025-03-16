@@ -19,7 +19,7 @@ async function loadComments() {
         container.innerHTML = "";
 
         if (comments.length === 0) {
-            container.innerHTML = "<p>No pending comments.</p>";
+            container.innerHTML = "<p class='no-comments'>No pending comments.</p>";
             return;
         }
 
@@ -28,16 +28,20 @@ async function loadComments() {
             commentBox.classList.add("comment-box");
 
             commentBox.innerHTML = `
-                <p class="comment-text"><strong>${comment.name}:</strong> ${comment.comment}</p>
+                <div class="comment-header">
+                    <p class="comment-text"><strong>${comment.name}:</strong> ${comment.comment}</p>
+                </div>
                 <input type="text" class="reply-input" placeholder="Reply (optional)" id="reply-${index}">
-                <button class="approve-btn" onclick="approveComment(${index})">Approve</button>
-                <button class="reject-btn" onclick="rejectComment(${index})">Reject</button>
+                <div class="button-group">
+                    <button class="approve-btn" onclick="approveComment(${index})">Approve</button>
+                    <button class="reject-btn" onclick="rejectComment(${index})">Reject</button>
+                </div>
             `;
 
             container.appendChild(commentBox);
         });
     } catch (error) {
-        container.innerHTML = `<p style="color: red;">Error loading comments: ${error.message}</p>`;
+        container.innerHTML = `<p class="error-message">Error loading comments: ${error.message}</p>`;
     }
 }
 
@@ -55,7 +59,7 @@ async function approveComment(index) {
         if (!response.ok) throw new Error("Failed to approve comment");
 
         alert("Comment Approved!");
-        loadComments(); // Reload comments after approval
+        loadComments();
     } catch (error) {
         alert("Error approving comment: " + error.message);
     }
@@ -73,14 +77,14 @@ async function rejectComment(index) {
         if (!response.ok) throw new Error("Failed to reject comment");
 
         alert("Comment Rejected!");
-        loadComments(); // Reload comments after rejection
+        loadComments();
     } catch (error) {
         alert("Error rejecting comment: " + error.message);
     }
 }
 
-// ✅ Submit all changes (optional)
+// ✅ Submit all changes
 async function submitChanges() {
     alert("All changes submitted successfully!");
-    loadComments(); // Refresh the comment list
+    loadComments();
 }
