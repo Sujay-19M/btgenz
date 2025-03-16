@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const messageBox = document.getElementById("message");
 
     // Cloudflare Worker URL
-    const WORKER_URL = "https://comment.YOUR_SUBDOMAIN.workers.dev";
+    const WORKER_URL = "https://comment.sujay-m-1194.workers.dev/";
 
     // Fetch and display comments
     async function loadComments() {
