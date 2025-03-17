@@ -47,13 +47,18 @@ async function loadComments() {
 
 // ✅ Approve a Comment
 async function approveComment(index) {
-    const replyInput = document.getElementById(`reply-${index}`).value;
-
     try {
+        const comments = await fetch("https://comment.sujay-m-1194.workers.dev/pending").then(res => res.json());
+        const commentId = comments[index]?.id; // ✅ Get the actual comment ID
+
+        if (!commentId) throw new Error("Comment ID not found");
+
+        const replyInput = document.getElementById(`reply-${index}`).value;
+
         const response = await fetch("https://comment.sujay-m-1194.workers.dev/approve", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ index, reply: replyInput })
+            body: JSON.stringify({ id: commentId, recommendation: replyInput }) // ✅ Send correct `id`
         });
 
         if (!response.ok) throw new Error("Failed to approve comment");
@@ -64,6 +69,7 @@ async function approveComment(index) {
         alert("Error approving comment: " + error.message);
     }
 }
+
 
 // ✅ Reject a Comment
 async function rejectComment(index) {
