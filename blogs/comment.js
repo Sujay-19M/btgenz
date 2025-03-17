@@ -1,62 +1,47 @@
-const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
-
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ comments.js loaded!");
+
     const form = document.getElementById("commentForm");
-    const commentsList = document.getElementById("commentsList");
-    const messageBox = document.getElementById("message");
-
-    async function loadComments() {
-        try {
-            const response = await fetch(WORKER_URL + "/approved", { mode: "cors" });
-            if (!response.ok) throw new Error("Failed to fetch comments");
-
-            const comments = await response.json();
-            commentsList.innerHTML = "";
-
-            comments.forEach(comment => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment-entry");
-                commentElement.innerHTML = `
-                    <strong>${comment.hide_info ? "Anonymous" : comment.name}</strong>
-                    <p>${comment.comment}</p>
-                    <small>${new Date(comment.timestamp).toLocaleString()}</small>
-                `;
-                commentsList.appendChild(commentElement);
-            });
-        } catch (error) {
-            console.error("Error loading comments:", error);
-        }
+    if (!form) {
+        console.error("❌ Form not found!");
+        return;
     }
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault();
+        console.log("🟡 Submit button clicked!");
 
         const formData = new FormData(form);
         const data = {
-            name: formData.get("full_name"), // ✅ FIXED: Changed 'full_name' to 'name'
+            full_name: formData.get("full_name"),
             email: formData.get("email"),
             comment: formData.get("comment"),
             hide_info: formData.get("hide_info") ? true : false
         };
 
+        console.log("🔵 Data to send:", data);
+
         try {
-            const response = await fetch(WORKER_URL + "/submit", {
+            const response = await fetch(WORKER_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                mode: "cors", // ✅ FIXED: Added CORS mode
                 body: JSON.stringify(data)
             });
 
+            console.log("🟢 Response status:", response.status);
+
             if (response.ok) {
-                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted for review.</p>";
+                document.getElementById("message").innerHTML =
+                    "<p style='color: green;'>✅ Comment submitted for review.</p>";
                 form.reset();
             } else {
-                messageBox.innerHTML = "<p style='color: red;'>❌ Failed to submit!</p>";
+                document.getElementById("message").innerHTML =
+                    "<p style='color: red;'>❌ Failed to submit!</p>";
             }
         } catch (error) {
-            console.error("Error submitting comment:", error);
+            console.error("🚨 Error submitting comment:", error);
+            document.getElementById("message").innerHTML =
+                "<p style='color: red;'>❌ Error submitting comment.</p>";
         }
     });
-
-    loadComments();
 });
