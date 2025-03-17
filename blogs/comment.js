@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
             name: formData.get("full_name"), // ✅ FIXED: Changed 'full_name' to 'name'
             email: formData.get("email"),
             comment: formData.get("comment"),
-            hide_info: formData.get("hide_info") ? true : false
         };
 
         try {
