@@ -1,42 +1,62 @@
 const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
-// ✅ Wrap fetch in an async function
-async function loadComments() {
-    try {
-        const response = await fetch(WORKER_URL.replace(/\/$/, "") + "/approved", {
-            method: "GET",
-            headers: { "Content-Type": "application/json" }
-        });
-
-        if (!response.ok) throw new Error("Failed to fetch comments");
-
-        const comments = await response.json();
-        displayComments(comments);
-    } catch (error) {
-        console.error("Error loading comments:", error);
-    }
-}
-
-// ✅ Function to display comments
-function displayComments(comments) {
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("commentForm");
     const commentsList = document.getElementById("commentsList");
-    commentsList.innerHTML = ""; // Clear previous comments
+    const messageBox = document.getElementById("message");
 
-    if (comments.length === 0) {
-        commentsList.innerHTML = "<p>No comments yet.</p>";
-        return;
+    async function loadComments() {
+        try {
+            const response = await fetch(WORKER_URL + "/approved", { mode: "cors" });
+            if (!response.ok) throw new Error("Failed to fetch comments");
+
+            const comments = await response.json();
+            commentsList.innerHTML = "";
+
+            comments.forEach(comment => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment-entry");
+                commentElement.innerHTML = `
+                    <strong>${comment.hide_info ? "Anonymous" : comment.name}</strong>
+                    <p>${comment.comment}</p>
+                    <small>${new Date(comment.timestamp).toLocaleString()}</small>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        } catch (error) {
+            console.error("Error loading comments:", error);
+        }
     }
 
-    comments.forEach(comment => {
-        const commentItem = document.createElement("div");
-        commentItem.classList.add("comment-item");
-        commentItem.innerHTML = `
-            <p><strong>${comment.name}</strong> (${new Date(comment.timestamp).toLocaleString()})</p>
-            <p>${comment.comment}</p>
-        `;
-        commentsList.appendChild(commentItem);
-    });
-}
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-// ✅ Load comments on page load
-document.addEventListener("DOMContentLoaded", loadComments);
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get("full_name"), // ✅ FIXED: Changed 'full_name' to 'name'
+            email: formData.get("email"),
+            comment: formData.get("comment"),
+            hide_info: formData.get("hide_info") ? true : false
+        };
+
+        try {
+            const response = await fetch(WORKER_URL + "/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                mode: "cors", // ✅ FIXED: Added CORS mode
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                messageBox.innerHTML = "<p style='color: green;'>✅ Comment submitted for review.</p>";
+                form.reset();
+            } else {
+                messageBox.innerHTML = "<p style='color: red;'>❌ Failed to submit!</p>";
+            }
+        } catch (error) {
+            console.error("Error submitting comment:", error);
+        }
+    });
+
+    loadComments();
+});
