@@ -33,10 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formData = new FormData(form);
         const data = {
-            name: formData.get("full_name"), // ✅ FIXED: Changed 'full_name' to 'name'
-            email: formData.get("email"),
-            comment: formData.get("comment"),
-        };
+                name: document.getElementById("full-name").value.trim(), // ✅ Send exactly as entered
+                email: document.getElementById("email").value.trim(),
+                comment: document.getElementById("comment").value.trim()
+            };
+
 
         try {
             const response = await fetch(WORKER_URL + "/submit", {
