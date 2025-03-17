@@ -1,47 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ comments.js loaded!");
+const WORKER_URL = "https://comment.sujay-m-1194.workers.dev";
 
-    const form = document.getElementById("commentForm");
-    if (!form) {
-        console.error("❌ Form not found!");
+// ✅ Wrap fetch in an async function
+async function loadComments() {
+    try {
+        const response = await fetch(WORKER_URL.replace(/\/$/, "") + "/approved", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch comments");
+
+        const comments = await response.json();
+        displayComments(comments);
+    } catch (error) {
+        console.error("Error loading comments:", error);
+    }
+}
+
+// ✅ Function to display comments
+function displayComments(comments) {
+    const commentsList = document.getElementById("commentsList");
+    commentsList.innerHTML = ""; // Clear previous comments
+
+    if (comments.length === 0) {
+        commentsList.innerHTML = "<p>No comments yet.</p>";
         return;
     }
 
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-        console.log("🟡 Submit button clicked!");
-
-        const formData = new FormData(form);
-        const data = {
-            full_name: formData.get("full_name"),
-            email: formData.get("email"),
-            comment: formData.get("comment"),
-            hide_info: formData.get("hide_info") ? true : false
-        };
-
-        console.log("🔵 Data to send:", data);
-
-        try {
-            const response = await fetch(WORKER_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
-
-            console.log("🟢 Response status:", response.status);
-
-            if (response.ok) {
-                document.getElementById("message").innerHTML =
-                    "<p style='color: green;'>✅ Comment submitted for review.</p>";
-                form.reset();
-            } else {
-                document.getElementById("message").innerHTML =
-                    "<p style='color: red;'>❌ Failed to submit!</p>";
-            }
-        } catch (error) {
-            console.error("🚨 Error submitting comment:", error);
-            document.getElementById("message").innerHTML =
-                "<p style='color: red;'>❌ Error submitting comment.</p>";
-        }
+    comments.forEach(comment => {
+        const commentItem = document.createElement("div");
+        commentItem.classList.add("comment-item");
+        commentItem.innerHTML = `
+            <p><strong>${comment.name}</strong> (${new Date(comment.timestamp).toLocaleString()})</p>
+            <p>${comment.comment}</p>
+        `;
+        commentsList.appendChild(commentItem);
     });
-});
+}
+
+// ✅ Load comments on page load
+document.addEventListener("DOMContentLoaded", loadComments);
