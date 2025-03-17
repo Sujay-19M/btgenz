@@ -71,7 +71,7 @@ async function approveComment(index) {
     }
 }
 
-// ✅ Reject a Comment
+// ✅ Reject a Comment and Remove it from UI Immediately
 async function rejectComment(index) {
     try {
         const response = await fetch("https://comment.sujay-m-1194.workers.dev/reject", {
@@ -83,6 +83,11 @@ async function rejectComment(index) {
         if (!response.ok) throw new Error("Failed to reject comment");
 
         alert("🚫 Comment Rejected!");
+
+        // 🔥 Immediately Remove the Rejected Comment from UI
+        document.getElementById("pending-comments").children[index].remove();
+        
+        // 🔄 Refresh Comments List to Ensure UI is Updated
         loadComments();
     } catch (error) {
         alert("❌ Error: " + error.message);
