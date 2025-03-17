@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const commentElement = document.createElement("div");
                 commentElement.classList.add("comment-entry");
                 commentElement.innerHTML = `
-                    <strong>${comment.hide_info ? "Anonymous" : comment.name}</strong>
+                    <strong>${comment.name}</strong> // ✅ Show full name exactly as entered
                     <p>${comment.comment}</p>
                     <small>${new Date(comment.timestamp).toLocaleString()}</small>
                 `;
