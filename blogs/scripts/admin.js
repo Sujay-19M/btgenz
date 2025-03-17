@@ -68,10 +68,15 @@ async function approveComment(index) {
 // ✅ Reject a Comment
 async function rejectComment(index) {
     try {
+        const comments = await fetch("https://comment.sujay-m-1194.workers.dev/pending").then(res => res.json());
+        const commentId = comments[index]?.id; // ✅ Get the actual comment ID
+
+        if (!commentId) throw new Error("Comment ID not found");
+
         const response = await fetch("https://comment.sujay-m-1194.workers.dev/reject", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ index })
+            body: JSON.stringify({ id: commentId }) // ✅ Send correct `id`
         });
 
         if (!response.ok) throw new Error("Failed to reject comment");
@@ -82,6 +87,7 @@ async function rejectComment(index) {
         alert("Error rejecting comment: " + error.message);
     }
 }
+
 
 // ✅ Submit all changes
 async function submitChanges() {
