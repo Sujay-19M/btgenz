@@ -368,22 +368,6 @@
         }
     </style>
 
-            <script>
-            document.addEventListener("scroll", function () {
-                let footer = document.getElementById("footer");
-                let socialBar = document.getElementById("socialBar");
-                let footerPosition = footer.getBoundingClientRect().top;
-                let windowHeight = window.innerHeight;
-        
-                if (footerPosition <= windowHeight) {
-                    socialBar.classList.add("hidden");
-                } else {
-                    socialBar.classList.remove("hidden");
-                }
-            });
-        </script>
-
-
     <!-- FontAwesome Icons (for social icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
