@@ -364,16 +364,17 @@
                 font-size: 20px;
                 margin: 0 0.5;
             }
-               /* Hide on Scroll Down (Only for Mobile) */
-    body:has(.scrolling-down) .social-bar {
-        opacity: 0;
-        transform: translateY(100px);
-    }
+
+        /* Hide social bar when footer is visible */
+        body:has(#footer) .social-bar {
+            opacity: 0;
+            pointer-events: none;
         }
 
         /* Hide on Scroll Down, Show on Scroll Up */
         .hidden {
             transform: translateY(100px);
+        }
         }
     </style>
 
