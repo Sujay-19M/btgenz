@@ -361,6 +361,11 @@
                 font-size: 20px;
                 margin: 0 0.5;
             }
+               /* Hide on Scroll Down (Only for Mobile) */
+    body:has(.scrolling-down) .social-bar {
+        opacity: 0;
+        transform: translateY(100px);
+    }
         }
 
         /* Hide on Scroll Down, Show on Scroll Up */
