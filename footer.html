@@ -364,6 +364,27 @@
         }
     </style>
 
+                <script>
+                        /* When scrolling into .footer-section, start fading */
+                .footer-section:nth-child(1) ~ #socialBar {
+                    opacity: 0.9;
+                }
+                .footer-section:nth-child(2) ~ #socialBar {
+                    opacity: 0.8;
+                }
+                .footer-section:nth-child(3) ~ #socialBar {
+                    opacity: 0.6;
+                }
+                .footer-section:nth-child(4) ~ #socialBar {
+                    opacity: 0.4;
+                }
+                
+                /* When scrolling into .footer-bottom, fully hide */
+                .footer-bottom ~ #socialBar {
+                    opacity: 0;
+                }
+    </script>
+
     <!-- FontAwesome Icons (for social icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
