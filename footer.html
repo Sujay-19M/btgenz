@@ -361,7 +361,21 @@
                 font-size: 20px;
                 margin: 0 0.5;
             }
-                .social-bar.hidden {
+     /* Hide when footer comes into view */
+            footer {
+                position: relative;
+            }
+        
+            footer::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: -50px; /* Adjust as needed */
+                width: 100%;
+                height: 50px;
+            }
+        
+            footer:has(.social-bar) .social-bar {
                 opacity: 0;
                 pointer-events: none;
             }
