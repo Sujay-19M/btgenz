@@ -16,6 +16,17 @@
             <button type="submit">Subscribe Now</button>
         </form>
     </div>
+
+
+    <!-- Social Icon Bar -->
+    <div class="social-bar" id="socialBar">
+        <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon email"><i class="fas fa-envelope"></i></a>
+        <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
     
     <div class="footer-container">
         <!-- About Us Section -->
@@ -297,7 +308,81 @@
                 justify-content: center;
             }
         }
+
+        /* Floating Social Media Bar */
+        .social-bar {
+            position: fixed;
+            top: 50%;
+            left: 70px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: transform 0.3s ease, bottom 0.3s ease;
+        }
+
+        /* Individual Social Icons */
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #f59e0b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+
+        /* Hover Effect */
+        .social-icon:hover {
+            background-color: #04433b;
+        }
+
+        /* Mobile Adjustments */
+           @media (max-width: 768px) {
+            .social-bar {
+                top: auto;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: row;
+                background: rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                margin: 0 0.5;
+            }
+        }
+
+        /* Hide on Scroll Down, Show on Scroll Up */
+        .hidden {
+            transform: translateY(100px);
+        }
     </style>
+
+    <script>
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function () {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            let socialBar = document.getElementById("socialBar");
+            
+            if (currentScroll > lastScrollTop) {
+                socialBar.classList.add("hidden"); // Hide on scroll down
+            } else {
+                socialBar.classList.remove("hidden"); // Show on scroll up
+            }
+            lastScrollTop = currentScroll;
+        });
+    </script>
 
     <!-- FontAwesome Icons (for social icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
