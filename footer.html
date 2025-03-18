@@ -370,18 +370,33 @@
     </style>
 
     <script>
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", function () {
-            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            let socialBar = document.getElementById("socialBar");
-            
-            if (currentScroll > lastScrollTop) {
-                socialBar.classList.add("hidden"); // Hide on scroll down
-            } else {
-                socialBar.classList.remove("hidden"); // Show on scroll up
-            }
-            lastScrollTop = currentScroll;
-        });
+                let scrollTimeout;
+                
+                window.addEventListener("scroll", function () {
+                    clearTimeout(scrollTimeout); // Clear any existing timeout
+                
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    let socialBar = document.getElementById("socialBar");
+                
+                    if (currentScroll > lastScrollTop) {
+                        // Scrolling Down - Hide the bar
+                        socialBar.style.opacity = "0";
+                        socialBar.style.visibility = "hidden";
+                    } else {
+                        // Scrolling Up - Show the bar
+                        socialBar.style.opacity = "1";
+                        socialBar.style.visibility = "visible";
+                    }
+                
+                    lastScrollTop = currentScroll;
+                
+                    // Prevent flickering - Keep it hidden for a short time after stopping scroll
+                    scrollTimeout = setTimeout(() => {
+                        socialBar.style.opacity = "1";
+                        socialBar.style.visibility = "visible";
+                    }, 300);
+                });
+
     </script>
 
     <!-- FontAwesome Icons (for social icons) -->
