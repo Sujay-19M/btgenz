@@ -1,30 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let lastScrollTop = 0;
     let socialBar = document.getElementById("socialBar");
-    let footer = document.querySelector("footer"); // Detects the footer element
+    let footer = document.querySelector("footer"); // Make sure this matches your actual footer tag/class
 
-    function checkScroll() {
-        if (!footer) return; // If no footer is found, exit
-
-        let footerRect = footer.getBoundingClientRect(); // Get footer position
+    function checkFooterVisibility() {
+        let footerRect = footer.getBoundingClientRect();
         let windowHeight = window.innerHeight;
 
-        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        // Hide when the footer is visible
-        if (footerRect.top < windowHeight) {
+        if (footerRect.top <= windowHeight) {
+            // Footer is visible, hide the social bar
             socialBar.style.opacity = "0";
             socialBar.style.visibility = "hidden";
-        } 
-        // Show only if scrolling up
-        else if (currentScroll < lastScrollTop) {
+        } else {
+            // Footer is not in view, show the social bar
             socialBar.style.opacity = "1";
             socialBar.style.visibility = "visible";
         }
-
-        lastScrollTop = currentScroll;
     }
 
-    // Run on scroll
-    window.addEventListener("scroll", checkScroll);
+    // Listen for scroll events
+    window.addEventListener("scroll", checkFooterVisibility);
+
+    // Initial check when the page loads
+    checkFooterVisibility();
 });
