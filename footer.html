@@ -17,28 +17,8 @@
         </form>
     </div>
 
-
-    <!-- Social Icon Bar -->
-    <div class="floating-share">
-    <button class="share-btn" id="toggleShare">
-        <i class="fas fa-share-alt"></i>
-    </button>
     
-    <div class="floating-share">
-    <a href="#socialBar" class="share-btn" id="openShare">
-        <i class="fas fa-share-alt"></i>
-    </a>
     
-        <div class="social-bar" id="socialBar">
-            <a href="#" class="close-share">&times;</a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={URL}" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u={URL}" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com/intent/tweet?url={URL}" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-            <a href="mailto:?subject=Check this out!&body={URL}" class="social-icon email"><i class="fas fa-envelope"></i></a>
-            <a href="https://api.whatsapp.com/send?text={URL}" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://t.me/share/url?url={URL}" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
-        </div>
-    </div>
     
     <div class="footer-container">
         <!-- About Us Section -->
@@ -322,109 +302,6 @@
         }
 
         
-
-       /* Floating Share Button */
-/* Floating Share Button (Only for Mobile) */
-.floating-share {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    z-index: 999;
-}
-
-/* Share Button */
-.share-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #f59e0b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: white;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.share-btn i {
-    font-size: 18px;
-}
-
-.share-btn:hover {
-    background-color: #04433b;
-    transform: scale(1.1);
-}
-
-/* Social Bar (Hidden by Default) */
-.social-bar {
-    position: fixed;
-    bottom: 70px;
-    right: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 6px;
-    border-radius: 8px;
-}
-
-/* Social Icons */
-.social-icon {
-    width: 36px;
-    height: 36px;
-    background-color: #f59e0b;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.social-icon:hover {
-    background-color: #04433b;
-    transform: scale(1.1);
-}
-
-/* Toggle Social Bar */
-#socialBar:target {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Desktop View - Social Bar Visible with Padding */
-@media (min-width: 769px) {
-    .floating-share {
-        left: 20px;
-        bottom: auto;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 70px;
-    }
-
-    .share-btn {
-        display: none;
-    }
-
-    .social-bar {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        background: none;
-        padding: 0;
-    }
-}
     
 </style>
     
