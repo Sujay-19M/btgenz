@@ -19,6 +19,11 @@
 
 
     <!-- Social Icon Bar -->
+    <div class="floating-share">
+    <button class="share-btn" id="toggleShare">
+        <i class="fas fa-share-alt"></i>
+    </button>
+    
     <div class="social-bar" id="socialBar">
         <a href="https://www.linkedin.com/sharing/share-offsite/?url={URL}" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.facebook.com/sharer/sharer.php?u={URL}" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
@@ -27,6 +32,7 @@
         <a href="https://api.whatsapp.com/send?text={URL}" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://t.me/share/url?url={URL}" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
     </div>
+</div>
     
     <div class="footer-container">
         <!-- About Us Section -->
@@ -309,81 +315,110 @@
             }
         }
 
-        /* Floating Social Media Bar */
-        .social-bar {
-            position: fixed;
+        
+
+       /* Floating Share Button */
+    .floating-share {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+
+        
+    }
+
+    .share-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #f59e0b;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        
+    }
+
+    .share-btn img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .share-btn:hover {
+        background-color: #04433b;
+        transform: scale(1.1);
+    }
+
+    /* Social Bar (Hidden Initially for Mobile) */
+    .social-bar {
+        position: absolute;
+        bottom: 70px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        background-color: #f59e0b;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .social-icon:hover {
+        background-color: #04433b;
+        transform: scale(1.1);
+    }
+
+    /* Show Social Bar When Active */
+    .social-bar.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Desktop View: Always Visible */
+    @media (min-width: 769px) {
+        .floating-share {
+            left: 20px;
+            bottom: auto;
             top: 50%;
-            left: 70px;
             transform: translateY(-50%);
+            padding: 70px;
+        }
+
+        .share-btn {
+            display: none;
+        }
+
+        .social-bar {
+            position: static;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            transition: transform 0.3s ease, bottom 0.3s ease;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
-
-        /* Individual Social Icons */
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #f59e0b;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-            text-decoration: none;
-        }
-
-        /* Hover Effect */
-        .social-icon:hover {
-            background-color: #04433b;
-        }
-
-        /* Mobile Adjustments */
-           @media (max-width: 768px) {
-            .social-bar {
-                top: auto;
-                bottom: 0px;
-                left: 50%;
-                transform: translateX(-50%);
-                flex-direction: row;
-                background: rgba(0, 0, 0, 0.2);
-                padding: 10px;
-                justify-content: space-around;
-                width: 100%;
-            }
-
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-                margin: 0 0.5;
-            }
-        }
-    </style>
-
-                <script>
-                        /* When scrolling into .footer-section, start fading */
-                .footer-section:nth-child(1) ~ #socialBar {
-                    opacity: 0.9;
-                }
-                .footer-section:nth-child(2) ~ #socialBar {
-                    opacity: 0.8;
-                }
-                .footer-section:nth-child(3) ~ #socialBar {
-                    opacity: 0.6;
-                }
-                .footer-section:nth-child(4) ~ #socialBar {
-                    opacity: 0.4;
-                }
-                
-                /* When scrolling into .footer-bottom, fully hide */
-                .footer-bottom ~ #socialBar {
-                    opacity: 0;
-                }
-    </script>
+    }
+   <script>
+    document.getElementById("toggleShare").addEventListener("click", function () {
+        document.getElementById("socialBar").classList.toggle("active");
+    });
+</script>
 
     <!-- FontAwesome Icons (for social icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
