@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Subscribing!</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00796b, #004d40);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .thank-you {
+            padding: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .thank-you h2 {
+            font-size: 36px;
+        }
+        .thank-you p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ff9800;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            top: 10px;
+        }
+        .btn:hover {
+            background: #e68900;
+            transform: scale(1.1);
+        }
+        .recommended {
+            margin-top: 40px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+        .articles {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .article {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+        .article:hover {
+            transform: translateY(-10px);
+        }
+        .btgenz-logo {
+            margin-top: 30px;
+            animation: rocketEffect 2s ease-in-out infinite;
+        }
+        .btgenz-logo img {
+            width: 100px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes rocketEffect {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .thank-you h2 {
+                font-size: 28px;
+            }
+            .thank-you p {
+                font-size: 14px;
+            }
+            .btn {
+                display: block;
+                width: 60%;
+                margin: 10px auto; /* Ensures spacing between stacked buttons */
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+  <div id="header"></div>
+  
+    <!-- Thank You Message -->
+    <section class="thank-you">
+        <h2>Thank You for Subscribing! 🎉</h2>
+        <p>You're now part of the BTGenZ community! Stay tuned for amazing content.</p>
+        <a href="/blog" class="btn">Explore Our Blog</a>
+        <a href="/latest" class="btn">Read Latest Articles</a>
+    </section>
+    
+    <!-- Recommended Articles -->
+    <section class="recommended">
+        <h3>Trending Topics for You</h3>
+        <div class="articles">
+            <div class="article">
+                <h4>Master SEO in 2024</h4>
+                <p>Learn the best SEO strategies to grow your blog.</p>
+                <a href="/blog/seo-2024" class="btn">Read More</a>
+            </div>
+            <div class="article">
+                <h4>How AI is Changing Content Writing</h4>
+                <p>Explore the impact of AI on digital marketing.</p>
+                <a href="/blog/ai-content" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Thank You Page with Logo -->
+    <div class="btgenz-logo">
+        <img src="blogs/images/btgenz-logo.png" alt="BTGenZ Logo">
+    </div>
+
+   <div id="footer"></div>
+    
+    <script>
+    function loadHeaderAndFooter() {
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+</body>
+</html>
