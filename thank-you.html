@@ -11,31 +11,34 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: fffff;
+            background: #ffffff;
             color: white;
             text-align: center;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            min-height: 100vh;
         }
         .main-container {
-          background: linear-gradient(to right, #00796b, #004d40);
-          padding: 20px;
-          border-radius: 15px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-          width: 100%;
-          max-width: 800px;
+            background: linear-gradient(to right, #00796b, #004d40);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
         }
         h1, h2, h3 {
-            margin-top: 20px;  /* Space above headings */
-            margin-bottom: 15px; /* Space below headings */
+            margin-top: 20px;  
+            margin-bottom: 15px;
         }
         p {
             line-height: 1.6;
-            margin-bottom: 20px; /* Adds space between paragraphs */
+            margin-bottom: 20px;
         }
-
         .thank-you {
             padding: 50px;
             animation: fadeIn 1.5s ease-in-out;
@@ -56,7 +59,7 @@
             font-weight: bold;
             border-radius: 8px;
             transition: 0.3s;
-            top: 10px;
+            margin: 10px;
         }
         .btn:hover {
             background: #e68900;
@@ -118,62 +121,60 @@
             .btn {
                 display: block;
                 width: 60%;
-                margin: 10px auto; /* Ensures spacing between stacked buttons */
+                margin: 10px auto;
             }
-
         }
     </style>
 </head>
 <body>
 
-  <div id="header"></div>
+    <div class="main-container">
+        <div id="header"></div>
 
-    <div class= "main-container">
-  
-    <!-- Thank You Message -->
-    <section class="thank-you">
-        <h1>Thank You for Subscribing! 🎉</h1>
-        <p>You're now part of the BTGenZ community! Stay tuned for amazing content.</p>
-        <a href="/blog" class="btn">Explore Our Blog</a>
-        <a href="/latest" class="btn">Read Latest Articles</a>
-    </section>
-    
-    <!-- Recommended Articles -->
-    <section class="recommended">
-        <h2>Trending Topics for You</h2>
-        <div class="articles">
-            <div class="article">
-                <h3>Master SEO in 2024</h3>
-                <p>Learn the best SEO strategies to grow your blog.</p>
-                <a href="/blog/seo-2024" class="btn">Read More</a>
+        <!-- Thank You Message -->
+        <section class="thank-you">
+            <h1>Thank You for Subscribing! 🎉</h1>
+            <p>You're now part of the BTGenZ community! Stay tuned for amazing content.</p>
+            <a href="/blog" class="btn">Explore Our Blog</a>
+            <a href="/latest" class="btn">Read Latest Articles</a>
+        </section>
+
+        <!-- Recommended Articles -->
+        <section class="recommended">
+            <h2>Trending Topics for You</h2>
+            <div class="articles">
+                <div class="article">
+                    <h3>Master SEO in 2024</h3>
+                    <p>Learn the best SEO strategies to grow your blog.</p>
+                    <a href="/blog/seo-2024" class="btn">Read More</a>
+                </div>
+                <div class="article">
+                    <h3>How AI is Changing Content Writing</h3>
+                    <p>Explore the impact of AI on digital marketing.</p>
+                    <a href="/blog/ai-content" class="btn">Read More</a>
+                </div>
             </div>
-            <div class="article">
-                <h3>How AI is Changing Content Writing</h3>
-                <p>Explore the impact of AI on digital marketing.</p>
-                <a href="/blog/ai-content" class="btn">Read More</a>
-            </div>
+        </section>
+
+        <!-- Thank You Page with Logo -->
+        <div class="btgenz-logo">
+            <img src="blogs/images/btgenz-logo.png" alt="BTGenZ Logo">
         </div>
-    </section>
-    
-    <!-- Thank You Page with Logo -->
-    <div class="btgenz-logo">
-        <img src="blogs/images/btgenz-logo.png" alt="BTGenZ Logo">
+
+        <div id="footer"></div>
     </div>
-</div>
 
-   <div id="footer"></div>
-    
     <script>
-    function loadHeaderAndFooter() {
-        fetch('../header.html')
-            .then(res => res.text())
-            .then(html => document.getElementById('header').innerHTML = html);
+        function loadHeaderAndFooter() {
+            fetch('../header.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('header').innerHTML = html);
 
-        fetch('../footer.html')
-            .then(res => res.text())
-            .then(html => document.getElementById('footer').innerHTML = html);
-    }
-    loadHeaderAndFooter();
-</script>
+            fetch('../footer.html')
+                .then(res => res.text())
+                .then(html => document.getElementById('footer').innerHTML = html);
+        }
+        loadHeaderAndFooter();
+    </script>
 </body>
 </html>
