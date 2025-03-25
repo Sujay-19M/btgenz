@@ -3,75 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn SEO Optimization Tool</title>
+    <title>LinkedIn SEO Optimization Tool | BTGenZ</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="description" content="Analyze and optimize your LinkedIn profile for better visibility and ranking with our AI-powered SEO tool.">
+    <meta name="keywords" content="LinkedIn SEO, profile optimization, career growth, BTGenZ">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        headline {
-            background: #00796b;
-            color: #fff;
-            text-align: center;
-            width: 100%;
-            padding: 20px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            justify-content: space-between;
-            margin: auto;
-            max-width: 1200px;
-        }
-        .main-content, .side-content {
-            background: #fff;
-            padding: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .main-content {
-            flex: 3;
-            margin-right: 10px;
-        }
-        .side-content {
-            flex: 1;
+
+        main {
+            padding: 30px;
+            background-color: white;
+            max-width: 1100px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 20px;
             text-align: center;
         }
-        .input-section {
+
+        h1 {
+            color: #005f73;
+            font-size: 2rem;
             text-align: center;
-            padding: 20px;
         }
+
         .input-container {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            max-width: 500px;
-            margin: auto;
+            margin: 20px auto;
+            max-width: 600px;
         }
+
         input[type="text"] {
-            width: 100%;
+            flex: 1;
             padding: 12px;
-            border: 2px solid #00796b;
+            border: 2px solid #005f73;
             border-radius: 8px;
             font-size: 16px;
             outline: none;
         }
+
         button {
-            background: #00796b;
-            color: #fff;
+            background: #005f73;
+            color: white;
             padding: 12px 20px;
             border: none;
             border-radius: 8px;
@@ -79,78 +67,75 @@
             font-size: 16px;
             transition: 0.3s;
         }
+
         button:hover {
-            background: #005a4f;
+            background: #f59e0b;
         }
-        .seo-score, .job-market-stats {
-            text-align: center;
-        }
+
         .result-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e0f7fa;
+            border-radius: 10px;
+            border: 2px solid #00b4d8;
+        }
+
+        .cta {
             text-align: center;
             margin-top: 20px;
         }
-        .cta-button {
-            background: #00796b;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+
+        .cta a {
+            background-color: #04433b;
+            color: white;
+            padding: 12px 30px;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
+
+        .cta a:hover {
+            background-color: #f59e0b;
+        }
+
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
+            main {
+                padding: 20px;
             }
-            .main-content, .side-content {
-                width: 100%;
-                margin-right: 0;
+            h1 {
+                font-size: 1.5rem;
             }
             .input-container {
                 flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
+    <div id="header"></div>
 
-   <div id="header"></div>
-  
-    <headline>
+    <main>
         <h1>LinkedIn SEO Optimization Tool</h1>
-        <p>Boost your LinkedIn profile's visibility and rank higher in search results.</p>
-    </headline>
-    
-    <div class="container">
-        <div class="main-content">
-            <section class="input-section">
-                <h2>Enter Your LinkedIn Profile URL</h2>
-                <div class="input-container">
-                    <input type="text" id="profileUrl" placeholder="Paste your LinkedIn profile link here...">
-                    <button onclick="analyzeProfile()">Analyze</button>
-                </div>
-            </section>
-            
-            <div class="result-container" id="resultContainer"></div>
-        </div>
+        <p>Boost your LinkedIn profile's visibility with AI-powered analysis.</p>
         
-        <div class="side-content">
-            <h2>Profile Insights</h2>
-            <p>💡 <strong>Profile Completeness:</strong> Ensure all sections are filled.</p>
-            <p>🔑 <strong>Keyword Optimization:</strong> Use industry-specific terms.</p>
-            <p>📈 <strong>Engagement Score:</strong> Increase posts and interactions.</p>
-            <a href="/contact/" class="cta-button">Need Help? Contact Us</a>
+        <div class="input-container">
+            <input type="text" id="profileUrl" placeholder="Enter your LinkedIn profile URL...">
+            <button onclick="analyzeProfile()">Analyze</button>
         </div>
-    </div>
-    
-    <footline>
-        <p>Developed for LinkedIn Growth | Powered by Smthing Creations</p>
-    </footline>
-  <div id="footer"></div>
-    
+
+        <div class="result-container" id="resultContainer">
+            <p>Results will appear here...</p>
+        </div>
+
+        <div class="cta">
+            <a href="/contact/">Need Help? Contact Us</a>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
     <script>
     function loadHeaderAndFooter() {
         fetch('../header.html')
@@ -162,32 +147,30 @@
             .then(html => document.getElementById('footer').innerHTML = html);
     }
     loadHeaderAndFooter();
-</script>
-    
-    <script>
-        function analyzeProfile() {
-            var profileUrl = document.getElementById("profileUrl").value;
-            if (!profileUrl) {
-                alert("Please enter a LinkedIn profile URL.");
-                return;
-            }
-            
-            fetch("https://script.google.com/macros/s/AKfycbyYVw46TC9iHPkkH7hhuJHJzEStoekwkREk4TggCUfSe49K-q_m9U_O4KTWGsHPmAPS/exec", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ linkedin_url: profileUrl })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("resultContainer").innerHTML = `
-                    <h3>SEO Score: ${data.seo_score}</h3>
-                    <p><strong>Strengths:</strong> ${data.strengths}</p>
-                    <p><strong>Weaknesses:</strong> ${data.weaknesses}</p>
-                    <p><strong>SEO Recommendations:</strong> ${data.suggestions}</p>
-                `;
-            })
-            .catch(error => console.error("Error:", error));
+
+    function analyzeProfile() {
+        var profileUrl = document.getElementById("profileUrl").value;
+        if (!profileUrl) {
+            alert("Please enter a LinkedIn profile URL.");
+            return;
         }
+        
+        fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ linkedin_url: profileUrl })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("resultContainer").innerHTML = `
+                <h3>SEO Score: ${data.seo_score}</h3>
+                <p><strong>Strengths:</strong> ${data.strengths}</p>
+                <p><strong>Weaknesses:</strong> ${data.weaknesses}</p>
+                <p><strong>SEO Recommendations:</strong> ${data.suggestions}</p>
+            `;
+        })
+        .catch(error => console.error("Error:", error));
+    }
     </script>
 </body>
 </html>
