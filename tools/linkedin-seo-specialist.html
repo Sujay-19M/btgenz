@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn SEO Optimization Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: #00796b;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            margin: auto;
+            max-width: 1200px;
+        }
+        .main-content, .side-content {
+            background: #fff;
+            padding: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .main-content {
+            flex: 3;
+            margin-right: 10px;
+        }
+        .side-content {
+            flex: 1;
+            text-align: center;
+        }
+        .input-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #00796b;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+        button {
+            background: #00796b;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #005a4f;
+        }
+        .seo-score, .job-market-stats {
+            text-align: center;
+        }
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cta-button {
+            background: #00796b;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-content, .side-content {
+                width: 100%;
+                margin-right: 0;
+            }
+            .input-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <div id="header"></div>
+  
+    <header>
+        <h1>LinkedIn SEO Optimization Tool</h1>
+        <p>Boost your LinkedIn profile's visibility and rank higher in search results.</p>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="input-section">
+                <h2>Enter Your LinkedIn Profile URL</h2>
+                <div class="input-container">
+                    <input type="text" id="profileUrl" placeholder="Paste your LinkedIn profile link here...">
+                    <button onclick="analyzeProfile()">Analyze</button>
+                </div>
+            </section>
+            
+            <div class="result-container" id="resultContainer"></div>
+        </div>
+        
+        <div class="side-content">
+            <h2>Profile Insights</h2>
+            <p>💡 <strong>Profile Completeness:</strong> Ensure all sections are filled.</p>
+            <p>🔑 <strong>Keyword Optimization:</strong> Use industry-specific terms.</p>
+            <p>📈 <strong>Engagement Score:</strong> Increase posts and interactions.</p>
+            <a href="/contact/" class="cta-button">Need Help? Contact Us</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Developed for LinkedIn Growth | Powered by Smthing Creations</p>
+    </footer>
+  <div id="footer"></div>
+    
+    <script>
+    function loadHeaderAndFooter() {
+        fetch('../header.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('header').innerHTML = html);
+
+        fetch('../footer.html')
+            .then(res => res.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    }
+    loadHeaderAndFooter();
+</script>
+    
+    <script>
+        function analyzeProfile() {
+            var profileUrl = document.getElementById("profileUrl").value;
+            if (!profileUrl) {
+                alert("Please enter a LinkedIn profile URL.");
+                return;
+            }
+            
+            fetch("https://script.google.com/macros/s/AKfycbyYVw46TC9iHPkkH7hhuJHJzEStoekwkREk4TggCUfSe49K-q_m9U_O4KTWGsHPmAPS/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ linkedin_url: profileUrl })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("resultContainer").innerHTML = `
+                    <h3>SEO Score: ${data.seo_score}</h3>
+                    <p><strong>Strengths:</strong> ${data.strengths}</p>
+                    <p><strong>Weaknesses:</strong> ${data.weaknesses}</p>
+                    <p><strong>SEO Recommendations:</strong> ${data.suggestions}</p>
+                `;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
