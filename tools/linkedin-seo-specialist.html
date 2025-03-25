@@ -148,29 +148,40 @@
     }
     loadHeaderAndFooter();
 
-    function analyzeProfile() {
-        var profileUrl = document.getElementById("profileUrl").value;
-        if (!profileUrl) {
-            alert("Please enter a LinkedIn profile URL.");
+        
+            function analyzeProfile() {
+    var profileUrl = document.getElementById("profileUrl").value;
+    if (!profileUrl) {
+        alert("Please enter a LinkedIn profile URL.");
+        return;
+    }
+
+    fetch("https://script.google.com/macros/s/AKfycbyYVw46TC9iHPkkH7hhuJHJzEStoekwkREk4TggCUfSe49K-q_m9U_O4KTWGsHPmAPS/exec", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ linkedin_url: profileUrl })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            document.getElementById("resultContainer").innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
             return;
         }
-        
-        fetch("https://script.google.com/macros/s/AKfycbyYVw46TC9iHPkkH7hhuJHJzEStoekwkREk4TggCUfSe49K-q_m9U_O4KTWGsHPmAPS/exec", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ linkedin_url: profileUrl })
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("resultContainer").innerHTML = `
-                <h3>SEO Score: ${data.seo_score}</h3>
-                <p><strong>Strengths:</strong> ${data.strengths}</p>
-                <p><strong>Weaknesses:</strong> ${data.weaknesses}</p>
-                <p><strong>SEO Recommendations:</strong> ${data.suggestions}</p>
-            `;
-        })
-        .catch(error => console.error("Error:", error));
-    }
+        document.getElementById("resultContainer").innerHTML = `
+            <h3>SEO Score: ${data.seo_score}</h3>
+            <p><strong>Strengths:</strong> ${data.strengths}</p>
+            <p><strong>Weaknesses:</strong> ${data.weaknesses}</p>
+            <p><strong>SEO Recommendations:</strong> ${data.summary}</p>
+        `;
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("resultContainer").innerHTML = `<p style="color:red;">Failed to fetch data. Please try again later.</p>`;
+    });
+}
+
     </script>
 </body>
 </html>
