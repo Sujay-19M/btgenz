@@ -197,12 +197,12 @@
 
 
     <script>
-                              async function analyzeProfile() {
+                             async function analyzeProfile() {
                   const inputField = document.getElementById("linkedinUrl");
                   const seoScoreElement = document.getElementById("seoScore");
-                  const seoSummaryElement = document.getElementById("seoSummary");
+                  const seoAnalysisElement = document.getElementById("seoAnalysis");
                 
-                  if (!inputField || !seoScoreElement || !seoSummaryElement) {
+                  if (!inputField || !seoScoreElement || !seoAnalysisElement) {
                     console.error("❌ SEO display elements not found in the DOM.");
                     alert("Error: Missing required elements.");
                     return;
@@ -230,13 +230,14 @@
                     }
                 
                     seoScoreElement.innerText = `SEO Score: ${data.seoScore}`;
-                    seoSummaryElement.innerText = `Summary: ${data.summary}`;
+                    seoAnalysisElement.innerHTML = `<strong>Detailed Analysis:</strong><br>${data.analysis.replace(/\n/g, "<br>")}`;
                 
                   } catch (error) {
                     console.error("❌ API Request Failed:", error);
                     alert("An error occurred while analyzing the profile. Please try again later.");
                   }
                 }
+
     </script>
 </body>
 </html>
