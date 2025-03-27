@@ -166,7 +166,7 @@
             <h1>LinkedIn SEO Optimization Tool</h1>
             <p>Boost your LinkedIn profile's visibility with AI-powered analysis.</p>
             <div class="input-container">
-                <input type="text" id="linkedin-url" placeholder="Enter your LinkedIn profile URL...">
+                <input type="text" id="linkedinUrl" placeholder="Enter LinkedIn URL">
                 <button onclick="analyzeProfile()">Analyze</button>
             </div>
             <div class="result-container" id="result-container">
@@ -180,37 +180,46 @@
 
 
     <script>
-                               async function analyzeProfile() {
-                  const userProvidedUrl = document.getElementById("linkedinUrl").value.trim();
-                
-                  if (!userProvidedUrl) {
-                    alert("❌ Please enter a valid LinkedIn URL!");
-                    return;
-                  }
-                
-                  try {
-                    const response = await fetch("https://linkedin-seo-analyzer.sujay-m-1194.workers.dev/", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ linkedin_url: userProvidedUrl }) 
-                    });
-                
-                    const data = await response.json();
+                              async function analyzeProfile() {
+                      const inputField = document.getElementById("linkedinUrl");
                     
-                    if (data.error) {
-                      console.error("❌ API Error:", data.error);
-                      alert("Error analyzing profile. Please try again.");
-                      return;
+                      if (!inputField) {
+                        console.error("❌ Input field not found in the DOM.");
+                        alert("Error: Input field not found.");
+                        return;
+                      }
+                    
+                      const userProvidedUrl = inputField.value.trim();
+                    
+                      if (!userProvidedUrl) {
+                        alert("❌ Please enter a valid LinkedIn URL!");
+                        return;
+                      }
+                    
+                      try {
+                        const response = await fetch("https://linkedin-seo-analyzer.sujay-m-1194.workers.dev/", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ linkedin_url: userProvidedUrl })
+                        });
+                    
+                        const data = await response.json();
+                    
+                        if (data.error) {
+                          console.error("❌ API Error:", data.error);
+                          alert("Error analyzing profile. Please try again.");
+                          return;
+                        }
+                    
+                        document.getElementById("seoScore").innerText = `SEO Score: ${data.seoScore}`;
+                        document.getElementById("seoSummary").innerText = `Summary: ${data.summary}`;
+                    
+                      } catch (error) {
+                        console.error("❌ API Request Failed:", error);
+                        alert("An error occurred while analyzing the profile. Please try again later.");
+                      }
                     }
-                
-                    document.getElementById("seoScore").innerText = `SEO Score: ${data.seoScore}`;
-                    document.getElementById("seoSummary").innerText = `Summary: ${data.summary}`;
-                
-                  } catch (error) {
-                    console.error("❌ API Request Failed:", error);
-                    alert("An error occurred while analyzing the profile. Please try again later.");
-                  }
-                }
+
 
 
     </script>
