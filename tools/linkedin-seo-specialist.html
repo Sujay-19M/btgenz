@@ -167,11 +167,11 @@
             <p>Boost your LinkedIn profile's visibility with AI-powered analysis.</p>
             <div class="input-container">
                 <input type="text" id="linkedinUrl" placeholder="Enter LinkedIn URL">
-                <button onclick="analyzeProfile()">Analyze</button>
+                <button onclick="analyzeProfile()">Analyze Profile</button>
             </div>
-            <div class="result-container" id="result-container">
-                <p id="seo-score">SEO Score: --</p>
-                <p id="seo-summary">Summary: --</p>
+            <div id="seoResults">
+              <p id="seoScore">SEO Score will appear here</p>
+              <p id="seoSummary">SEO Summary will appear here</p>
             </div>
         </div>
     </div>
@@ -185,20 +185,13 @@
                   const seoScoreElement = document.getElementById("seoScore");
                   const seoSummaryElement = document.getElementById("seoSummary");
                 
-                  if (!inputField) {
-                    console.error("❌ Input field not found in the DOM.");
-                    alert("Error: Input field not found.");
-                    return;
-                  }
-                
-                  if (!seoScoreElement || !seoSummaryElement) {
+                  if (!inputField || !seoScoreElement || !seoSummaryElement) {
                     console.error("❌ SEO display elements not found in the DOM.");
-                    alert("Error: Missing SEO results section.");
+                    alert("Error: Missing required elements.");
                     return;
                   }
                 
                   const userProvidedUrl = inputField.value.trim();
-                
                   if (!userProvidedUrl) {
                     alert("❌ Please enter a valid LinkedIn URL!");
                     return;
@@ -227,10 +220,6 @@
                     alert("An error occurred while analyzing the profile. Please try again later.");
                   }
                 }
-
-
-
-
     </script>
 </body>
 </html>
