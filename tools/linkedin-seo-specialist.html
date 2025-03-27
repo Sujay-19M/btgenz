@@ -179,6 +179,23 @@
         <div id="footer"></div>
 
 
+                <script>
+                function loadHeaderAndFooter() {
+                    fetch('../header.html')
+                        .then(res => res.text())
+                        .then(html => document.getElementById('header').innerHTML = html);
+            
+                    fetch('../footer.html')
+                        .then(res => res.text())
+                        .then(html => document.getElementById('footer').innerHTML = html);
+                }
+                loadHeaderAndFooter();
+            </script>
+
+
+    
+
+
     <script>
                               async function analyzeProfile() {
                   const inputField = document.getElementById("linkedinUrl");
